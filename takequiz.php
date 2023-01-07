@@ -15,7 +15,7 @@
 
 <body>
 	<div>
-		sample
+		<h4>EXAMPLE</h4>
 	</div>
 	<div class="container-fluid admin">
 		<div class="col-md-12 alert alert-primary">Current Available Quiz</div>
