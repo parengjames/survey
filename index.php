@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start() ?>
+<?php require_once "db_connect.php"?>
 <?php 
 	if(!isset($_SESSION['login_id']))
 	    header('location:login.php');

@@ -1,9 +1,13 @@
 <?php
-
+include('db_connect.php');
 if (isset($_POST['submit'])) {
     $answer = $_POST['answer'];
     $answerkey = $_POST['answerkey'];
-    $quizID = $_POST['question_id'];
+    $quizitemID = $_POST['question_id'];
+    $quiz_id = $_SESSION['quizID'];
+    $mistakes = 1;
+    //user....
+    $user_id = $_SESSION['login_id'];
 
     echo "Your answer is $answer";
     //checking if the input answer is not empty......
@@ -36,6 +40,15 @@ if (isset($_POST['submit'])) {
             // $scorequery = "INSERT INTO `exam_correct`(`student_id`, `exam_id`, `examitem_id`, `points`,`hint_attempt`,`exam_attempt`) 
             // VALUES ($studentID,$examID,$questionId,$totalScore,$hintUseValue,$examAttempt)";
             // $result = mysqli_query($con, $scorequery);
+        }
+        // got wrong answer........
+        else{
+            $mistakequery = "INSERT INTO `quiz_mistake`(`user_id`, `quizItem_id`, `quiz_id`, `input_answer`, `mistake`, `quiz_attempt`) 
+            VALUES ($user_id,$quizitemID,$quiz_id,$answer,$mistakes,'[value-7]')";
+
+            $sqlquery = "INSERT INTO `exam_mistakes`(`student_id`, `examitem_id`, `exam_id`,`answer_input`, `mistakes`,`exam_attempt`) 
+            VALUES ($studentID,$questionId,$examID,'" . $inputanswer . "',$attemptMistake,$examAttempt)";
+                $insertResult = mysqli_query($con, $sqlquery);
         }
     }
 }

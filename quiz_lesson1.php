@@ -170,7 +170,29 @@
                 break;
             }
         }
+
+       
 ?>
+
+
 </body>
+
+<?php
+ // using the value of attempts..........
+ $quizAttempt;
+ if(isset($_GET['attempt'])){
+     $quizAttempt = $_GET['attempt'];
+     $_SESSION['quiz_attempt'] = $quizAttempt;
+     $userID = $_SESSION['login_id'];
+     $quizID = $_SESSION['quiz-id'];
+
+     $attemptQuery = "INSERT INTO `quiz_attempt`(`student_id`, `quiz_id`, `status`)
+      VALUES ($userID,$quizID,$quizAttempt)";
+      $result = mysqli_query($conn, $attemptQuery);
+ }
+ if(isset($quizAttempt)){
+     $_SESSION['stud_totalAttempt'] = ++$quizAttempt;
+ }
+?>
 
 </html>
