@@ -1,0 +1,111 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin:5% auto;        
+}
+
+.form-box{
+    text-align: center;
+    border-radius: 25px;
+    height: 500px;
+    width: 500px;
+    padding: 50px 0;
+    background: rgba(228, 244, 245, 0.863);
+    margin:5% auto; 
+    box-shadow:0 0 20px2px rgba(0,0,0.5);
+}
+
+.ïnput-box{
+    margin: 31px auto;
+    width:80%;
+    border-bottom: 1px solid #fff;
+    padding-top:10px;
+    padding-bottom:5px;
+}
+
+.ïnput-box input{
+    width:90%;
+    border:none;
+    outline:none;
+    background:transparent;
+    color:black;
+    font-size:15px;
+    
+}
+
+.button {
+           
+           background-color:#FA3C4C;
+           border: round;
+           color: white;
+           padding: 15px 32px;
+           text-align: center;
+           text-decoration: none;
+           display: inline-block;
+           font-size: 18px;
+           border-radius: 10px;
+           width:300px;
+}
+::placeholder{
+    color: black;
+}
+.bx{
+    margin-right:10px;
+}
+
+.eye{
+    position:absolute;
+
+}
+#hide1{
+    display:none;
+}
+.ïnput-box{
+    margin: 31px auto;
+    width:80%;
+    border-bottom: 1px solid #fff;
+    padding-top:10px;
+    padding-bottom:5px;
+}
+p{
+            text-align: center;
+            font-family:  sans-serif;
+            color:black;
+            font: size 10px;
+            }
+            a{
+                text-align: center;
+                font-family: Helvetica;
+                color: blue;
+                margin: auto;
+            } 
+            a{
+                text-align: center;
+                font-family: Helvetica;
+                color: blue;
+                margin: auto;
+            }
+            .section{
+    height: 100vh;
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;   
+}
+
+#login{
+    justify-content: center;
+}
+
+#homepage{
+    justify-content: center;
+}

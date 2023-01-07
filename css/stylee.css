@@ -1,0 +1,40 @@
+.container{
+    max-width:70%;
+    margin:0 auto;
+
+}
+
+.input-field{
+    padding:10px;
+}
+
+.input-field label{
+    display: block;
+    font-size: 20px;
+    margin-left: -8;
+    font-weight: 300;
+    color: gray;
+}
+
+.input-field input[type='text']{
+    width: 100%;
+    padding: 5px;
+    margin-left: -8;
+    font-size: 16px;
+}
+
+.publish-btn{
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(247, 102, 102);
+    color: white;
+    margin-top: 10px;
+    border: 0;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.background{
+    background-color: aqua;
+}
+
