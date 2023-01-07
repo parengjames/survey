@@ -4,24 +4,36 @@
 <head>
 </head>
 
-<?php include('header.php') ?>
+<?php include('header.php');
+session_start(); ?>
 
 <?php include('db_connect.php');
 
+// GETTING THE NEXT Q ITEM .................
+$item_num;
+if (isset($_GET['question'])) {
+    $item_num = $_GET['question'];
+} else {
+    $item_num = 1;
+}
+$_SESSION['itemNum'] = $item_num;
+
 ?>
 <style>
-    .score{
+    .score {
         text-align: right;
         margin-right: 2in;
     }
 </style>
 </head>
 <br>
+
 <body>
-<div class="score">
-		<h3 style="font-weight: bolder;color: DodgerBlue;">Score: 
-        <span style="font-weight: bolder;color: #4169E1;font-size: 40px;">75</span></h3>
-	</div>
+    <div class="score">
+        <h3 style="font-weight: bolder;color: DodgerBlue;">Score:
+            <span style="font-weight: bolder;color: #4169E1;font-size: 40px;">75</span>
+        </h3>
+    </div>
     <div style="width: 12in;" class="container-fluid admin">
 
         <div class="alert alert-primary">
@@ -171,28 +183,52 @@
             }
         }
 
-       
+
 ?>
 
 
 </body>
 
 <?php
- // using the value of attempts..........
- $quizAttempt;
- if(isset($_GET['attempt'])){
-     $quizAttempt = $_GET['attempt'];
-     $_SESSION['quiz_attempt'] = $quizAttempt;
-     $userID = $_SESSION['login_id'];
-     $quizID = $_SESSION['quiz-id'];
+// using the value of attempts..........
+$quizAttempt;
+if (isset($_GET['attempt'])) {
+    $quizAttempt = $_GET['attempt'];
+    $_SESSION['quiz_attempt'] = $quizAttempt;
+    $userID = $_SESSION['login_id'];
+    $quizID = $_SESSION['quiz-id'];
 
-     $attemptQuery = "INSERT INTO `quiz_attempt`(`student_id`, `quiz_id`, `status`)
+    $attemptQuery = "INSERT INTO `quiz_attempt`(`student_id`, `quiz_id`, `status`)
       VALUES ($userID,$quizID,$quizAttempt)";
-      $result = mysqli_query($conn, $attemptQuery);
- }
- if(isset($quizAttempt)){
-     $_SESSION['stud_totalAttempt'] = ++$quizAttempt;
- }
+    $result = mysqli_query($conn, $attemptQuery);
+}
+if (isset($quizAttempt)) {
+    $_SESSION['stud_totalAttempt'] = ++$quizAttempt;
+}
 ?>
 
 </html>
+
+<!-- SWEET ALERT SCRIPT -->
+<script src="assets/plugins/sweetalert2/sweetalert.min.js"></script>
+<script src="assets/plugins/sweetalert2/jquery-3.6.1.min.js"></script>
+<!-- for sweet alert........... -->
+
+<?php
+    if(isset($_SESSION['headertext'])){
+        if(isset($_SESSION['bodytext'])){
+            if(isset($_SESSION['statusIcon'])){
+                ?>
+                <script>
+                    swal.swal({
+                        title:"<?php echo $_SESSION['headertext'] ?>"
+                        text: "<?php echo $_SESSION['bodytext'] ?>"
+                        icon: "<?php echo $_SESSION['statusIcon'] ?>"
+                    });
+                </script>
+                <?php
+            }
+        }
+    }
+    unset($_SESSION['headertext']);
+?>

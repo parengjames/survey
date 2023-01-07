@@ -1,13 +1,18 @@
 <?php
+session_start();
 include('db_connect.php');
 if (isset($_POST['submit'])) {
     $answer = $_POST['answer'];
     $answerkey = $_POST['answerkey'];
     $quizitemID = $_POST['question_id'];
-    $quiz_id = $_SESSION['quizID'];
+    $quiz_id = $_SESSION['quiz-id'];
     $mistakes = 1;
     //user....
     $user_id = $_SESSION['login_id'];
+    // quiz attempt.....
+    $quizAttempt = $_SESSION['quiz_attempt'];
+
+    $currentItem =  $_SESSION['itemNum'];
 
     echo "Your answer is $answer";
     //checking if the input answer is not empty......
@@ -44,11 +49,28 @@ if (isset($_POST['submit'])) {
         // got wrong answer........
         else{
             $mistakequery = "INSERT INTO `quiz_mistake`(`user_id`, `quizItem_id`, `quiz_id`, `input_answer`, `mistake`, `quiz_attempt`) 
-            VALUES ($user_id,$quizitemID,$quiz_id,$answer,$mistakes,'[value-7]')";
+            VALUES($user_id,$quizitemID,$quiz_id,$answer,$mistakes,$quizAttempt)";
+             $insertResult = mysqli_query($conn, $mistakequery);
 
-            $sqlquery = "INSERT INTO `exam_mistakes`(`student_id`, `examitem_id`, `exam_id`,`answer_input`, `mistakes`,`exam_attempt`) 
-            VALUES ($studentID,$questionId,$examID,'" . $inputanswer . "',$attemptMistake,$examAttempt)";
-                $insertResult = mysqli_query($con, $sqlquery);
+             // fetching mistakes from database........
+             $fetchquery = "SELECT SUM(mistake) AS totalmistakes FROM quiz_mistake
+             WHERE user_id=$user_id AND quizItem_id=$quizitemID AND quiz_attempt=$quizAttempt";
+             $queryResult = mysqli_query($conn, $fetchquery);
+             $rowCount = mysqli_num_rows($queryResult);
+
+             if($rowCount > 0){
+                $record = mysqli_fetch_assoc($queryResult);
+                while($record){
+                    $mistakes = $record['totalmistakes'];
+                    if($mistakes == 1){
+                        $_SESSION['headertext'] = "Try again";
+                        $_SESSION['bodytext']   = "Answer is wrong";
+                        $_SESSION['statusIcon'] = "error";
+                        header("location: ../survey/quiz_lesson1.php?repeat=1&question=$currentItem");
+                    }
+                    break;
+                }
+             }
         }
     }
 }
