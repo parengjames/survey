@@ -1,5 +1,3 @@
-<!-- SweetAlert2 -->
-<!-- <script src="assets/plugins/sweetalert2/sweetalert2.min.js"></script> -->
 <!-- Toastr -->
 <script src="assets/plugins/toastr/toastr.min.js"></script>
 <!-- Select2 -->
@@ -156,4 +154,8 @@ $(function () {
 <script src="assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<!-- SWEET ALERT SCRIPT -->
+
+
 
