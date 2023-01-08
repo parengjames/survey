@@ -13,6 +13,7 @@
 
     <title>ANATOMY OF THE HEART</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="css1/style.css">
 
     <!-- Botstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -30,57 +31,22 @@
         <!--	<?php include('nav_bar.php') ?>-->
 
 
-  
+        <h2 align=center>Lesson 1</h2>
+        <br>
+        <p align="justify" style="font-size: 20px;">The<span class="card-box" style="font-size: 20px;"><b
+                    style="color: blue;"> heart</b><span class="card-popup"><img src="images/1.jpg" alt="">Lorem ipsum
+                    dolor sit amet consectetur, adipisicing elit. Saepe molestias aspernatur quam quo rem eaque ab
+                    dolores ut culpa accusamus pariatur, deserunt expedita at magnam cumque animi velit quae
+                    possimus.</span></span> adipisicing elit. Molestias ducimus aperiam tempore aliquam, unde nisi
+            mollitia natus dicta labore earum, cumque, temporibus! Veniam fugit, a tempore odio tenetur blanditiis
+            deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, perspiciatis? Molestias expedita
+            doloremque porro, maiores numquam aspernatur dolores dignissimos <span class="card-box">adipisicing<span
+                    class="card-popup"><img src="images/2.jpg" alt="">Lorem ipsum dolor sit amet consectetur,
+                    adipisicing elit. Saepe molestias aspernatur quam quo rem eaque ab dolores ut culpa accusamus
+                    pariatur, deserunt expedita at magnam cumque animi velit quae possimus.</span> </span> voluptatem
+            incidunt. Eos enim, incidunt debitis nemo dicta? Vitae, provident?</p>
 
 
-       
-
-
-        <p class="font-14 ml-0" align="left" style='font-size:30px;'>
-            <b>Lesson 1 </b>
-            <br>
-            <br>
-        <div class="col-lg-12 col-md-13 col-sm-12">
-            <div class="product-detail-desc pd-20 card-box height-100-p">
-                <section id="Introduction">
-                    <h3 class="mb-20 pt-20"><b>&nbsp;&nbsp;Introduction</b></h3>
-
-
-               
-
-                        </p>
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div class="product-detail-desc pd-30 card-box height-100-p"
-                                style="background-color:lavender">
-
-
-                                <p align="justify" style='font-size:25px;'>
-                                    The human heart consists of four chambers: The left side and the right side each
-                                    have one <b style="color:blue">atrium </b> and one <b style="color:blue">ventricle.
-                                    </b> Each of the upper chambers, the right atrium (plural = atria) and the left
-                                    atrium, acts as <b style="color:blue">a receiving chamber </b> and contracts to push
-                                    blood into the lower chambers, the right ventricle and the left ventricle. The
-                                    ventricles serve as the <b style="color:blue"> primary pumping chambers</b> of the
-                                    heart, propelling blood to the lungs or to the rest of the body.</p>
-                            </div>
-                        </div>
-                        <br>
-                     
-                        <br>
-                   
-                        <br>
-                     
-                        <br>
-
-
-
-                     
-                            <br>
-                          
-
-
-            </div>
         </div>
-
 
     </body>
