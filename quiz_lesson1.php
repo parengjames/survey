@@ -68,6 +68,24 @@ if (isset($_GET['usehint'])) {
 }
 
 ?>
+
+<?php
+// using the value of attempts..........
+$quizAttempt;
+if (isset($_GET['attempt'])) {
+    $quizAttempt = $_GET['attempt'];
+    $_SESSION['quiz_attempt'] = $quizAttempt;
+    $userID = $_SESSION['login_id'];
+    $quizID = $_SESSION['quiz-id'];
+
+    $attemptQuery = "INSERT INTO `quiz_attempt`(`student_id`, `quiz_id`, `status`)
+      VALUES ($userID,$quizID,$quizAttempt)";
+    $result = mysqli_query($conn, $attemptQuery);
+}
+if (isset($quizAttempt)) {
+    $_SESSION['stud_totalAttempt'] = ++$quizAttempt;
+}
+?>
 <style>
     .score {
         text-align: right;
@@ -80,16 +98,27 @@ if (isset($_GET['usehint'])) {
 <?php
     $user = $_SESSION['login_id'];
     $quiz = $_SESSION['quiz-id'];
-    $attempt = $_SESSION['quiz_attempt'];
+    $attemptss;
+
+    $getattempt = "SELECT MAX(status) AS updatestats FROM quiz_attempt WHERE student_id=$user";
+    $queryResult = mysqli_query($conn, $getattempt);
+    $rowCount = mysqli_num_rows($queryResult);
+    if ($rowCount > 0) {
+        $record = mysqli_fetch_assoc($queryResult);
+        while($record){
+            $status = $record['updatestats'];
+            $attemptss = $status;
+            break;
+        }
+    }
 
     $totalscorequery = "SELECT SUM(points) AS totalpoints FROM quiz_correct
-    WHERE user_id=$user AND quiz_id=$quiz AND quiz_attempt=$attempt";
+    WHERE user_id=$user AND quiz_id=$quiz AND quiz_attempt=$attemptss";
     $queryResult = mysqli_query($conn, $totalscorequery);
     $rowCount = mysqli_num_rows($queryResult);
 
     $totalScore;
     
-
     if ($rowCount > 0) {
         $record = mysqli_fetch_assoc($queryResult);
         while($record){
@@ -105,7 +134,7 @@ if (isset($_GET['usehint'])) {
 
 <body>
     <div class="score">
-        <h3 style="font-weight: bolder;color: DodgerBlue;">Score:
+        <h3 style="font-weight: bolder;color: DodgerBlue;">Your Score:
             <span style="font-weight: bolder;color: #4169E1;font-size: 40px;"><?php echo $totalScore; ?></span>
         </h3>
     </div>
@@ -302,23 +331,7 @@ if (isset($_GET['usehint'])) {
 <?php require "footer.php"; ?>
 
 
-<?php
-// using the value of attempts..........
-$quizAttempt;
-if (isset($_GET['attempt'])) {
-    $quizAttempt = $_GET['attempt'];
-    $_SESSION['quiz_attempt'] = $quizAttempt;
-    $userID = $_SESSION['login_id'];
-    $quizID = $_SESSION['quiz-id'];
 
-    $attemptQuery = "INSERT INTO `quiz_attempt`(`student_id`, `quiz_id`, `status`)
-      VALUES ($userID,$quizID,$quizAttempt)";
-    $result = mysqli_query($conn, $attemptQuery);
-}
-if (isset($quizAttempt)) {
-    $_SESSION['stud_totalAttempt'] = ++$quizAttempt;
-}
-?>
 
 <!-- SCRIPT FOR SWEETALERT -->
 <script src="assets/plugins/sweetalert2/sweetalert.min.js"></script>
