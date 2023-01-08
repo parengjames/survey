@@ -80,7 +80,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index.php?page=#" class="nav-link nav-user_list tree-item">
+                <a href="./index.php?page=module2" class="nav-link nav-user_list tree-item">
             
                   <p>Lesson 2</p>
                 </a>
