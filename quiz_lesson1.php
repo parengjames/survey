@@ -40,6 +40,12 @@
     <!-- summernote -->
     <link rel="stylesheet" href="assets/plugins/summernote/summernote-bs4.min.css">
 </head>
+<style>
+    .swal-text {
+        text-align: center;
+    }
+</style>
+
 <?php include('db_connect.php');
 
 // GETTING THE NEXT Q ITEM .................
@@ -94,42 +100,42 @@ if (isset($quizAttempt)) {
 </style>
 </head>
 <br>
-     <!-- getting total score -->
+<!-- getting total score -->
 <?php
-    $user = $_SESSION['login_id'];
-    $quiz = $_SESSION['quiz-id'];
-    $attemptss;
+$user = $_SESSION['login_id'];
+$quiz = $_SESSION['quiz-id'];
+$attemptss;
 
-    $getattempt = "SELECT MAX(status) AS updatestats FROM quiz_attempt WHERE student_id=$user";
-    $queryResult = mysqli_query($conn, $getattempt);
-    $rowCount = mysqli_num_rows($queryResult);
-    if ($rowCount > 0) {
-        $record = mysqli_fetch_assoc($queryResult);
-        while($record){
-            $status = $record['updatestats'];
-            $attemptss = $status;
-            break;
-        }
+$getattempt = "SELECT MAX(status) AS updatestats FROM quiz_attempt WHERE student_id=$user";
+$queryResult = mysqli_query($conn, $getattempt);
+$rowCount = mysqli_num_rows($queryResult);
+if ($rowCount > 0) {
+    $record = mysqli_fetch_assoc($queryResult);
+    while ($record) {
+        $status = $record['updatestats'];
+        $attemptss = $status;
+        break;
     }
+}
 
-    $totalscorequery = "SELECT SUM(points) AS totalpoints FROM quiz_correct
+$totalscorequery = "SELECT SUM(points) AS totalpoints FROM quiz_correct
     WHERE user_id=$user AND quiz_id=$quiz AND quiz_attempt=$attemptss";
-    $queryResult = mysqli_query($conn, $totalscorequery);
-    $rowCount = mysqli_num_rows($queryResult);
+$queryResult = mysqli_query($conn, $totalscorequery);
+$rowCount = mysqli_num_rows($queryResult);
 
-    $totalScore;
-    
-    if ($rowCount > 0) {
-        $record = mysqli_fetch_assoc($queryResult);
-        while($record){
-            $total = $record['totalpoints'];
-            $totalScore = $total;
-            break;
-        }
+$totalScore;
+
+if ($rowCount > 0) {
+    $record = mysqli_fetch_assoc($queryResult);
+    while ($record) {
+        $total = $record['totalpoints'];
+        $totalScore = $total;
+        break;
     }
-    if($totalScore == ""){
-        $totalScore = 0;
-    }
+}
+if ($totalScore == "") {
+    $totalScore = 0;
+}
 ?>
 
 <body>
@@ -398,26 +404,50 @@ if (isset($_SESSION['headertextitem'])) {
 unset($_SESSION['headertextitem']);
 ?>
 
-    <!-- DISPLAY IF SUBMIT ANSWER IS EMPTY -->
-    <?php
-    if(isset($_SESSION['headertext_empty'])){
-        if(isset($_SESSION['bodytext_empty'])){
-            if(isset($_SESSION['statusIcon_empty'])){
+<!-- DISPLAY IF SUBMIT ANSWER IS EMPTY -->
+<?php
+if (isset($_SESSION['headertext_empty'])) {
+    if (isset($_SESSION['bodytext_empty'])) {
+        if (isset($_SESSION['statusIcon_empty'])) {
 
-                ?>
-    <script>
-    swal({
-        title: "<?php echo $_SESSION['headertext_empty']; ?>",
-        text: "<?php echo $_SESSION['bodytext_empty']; ?>",
-        icon: '<?php echo $_SESSION['statusIcon_empty']; ?>',
-    });
-    </script>
-    <?php
+?>
+            <script>
+                swal({
+                    title: "<?php echo $_SESSION['headertext_empty']; ?>",
+                    text: "<?php echo $_SESSION['bodytext_empty']; ?>",
+                    icon: '<?php echo $_SESSION['statusIcon_empty']; ?>',
+                });
+            </script>
+<?php
 
-            }
         }
     }
-    unset($_SESSION['headertext_empty']);
+}
+unset($_SESSION['headertext_empty']);
+?>
+
+<!-- SWEET ALERT FOR LAST QUESTION -->
+<?php
+if (isset($_SESSION['headertextlast'])) {
+    if (isset($_SESSION['bodytextlast'])) {
+        if (isset($_SESSION['statusIconlast'])) {
+?>
+
+            <script>
+                swal({
+                    title: "<?php echo $_SESSION['headertextlast'] ?>",
+                    text: "<?php echo $_SESSION['bodytextlast'] ?>",
+                    icon: '<?php echo $_SESSION['statusIconlast'] ?>',
+                    button: 'See Result'
+                }).then(function() {
+                    window.location = "index.php?page=excircle_result&saveResult=1";
+                });
+            </script>
+<?php
+        }
+    }
+}
+unset($_SESSION['headertextlast']);
 ?>
 
 </html>
