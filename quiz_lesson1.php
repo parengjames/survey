@@ -398,4 +398,26 @@ if (isset($_SESSION['headertextitem'])) {
 unset($_SESSION['headertextitem']);
 ?>
 
+    <!-- DISPLAY IF SUBMIT ANSWER IS EMPTY -->
+    <?php
+    if(isset($_SESSION['headertext_empty'])){
+        if(isset($_SESSION['bodytext_empty'])){
+            if(isset($_SESSION['statusIcon_empty'])){
+
+                ?>
+    <script>
+    swal({
+        title: "<?php echo $_SESSION['headertext_empty']; ?>",
+        text: "<?php echo $_SESSION['bodytext_empty']; ?>",
+        icon: '<?php echo $_SESSION['statusIcon_empty']; ?>',
+    });
+    </script>
+    <?php
+
+            }
+        }
+    }
+    unset($_SESSION['headertext_empty']);
+?>
+
 </html>

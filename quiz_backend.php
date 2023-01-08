@@ -16,11 +16,12 @@ if (isset($_POST['submit'])) {
     $currentItem =  $_SESSION['itemNum'];
 
     $over = $_SESSION['over'];
-
-    echo "Your answer is $answer";
     //checking if the input answer is not empty......
     if ($answer == "") {
-        echo "no answer read";
+        $_SESSION['headertext_empty'] = "No answer detected";
+        $_SESSION['bodytext_empty']   = "Make sure to click the choices to submit the answer.";
+        $_SESSION['statusIcon_empty'] = "warning";
+        header("location: ../survey/quiz_lesson1.php?repeat=$over&question=$currentItem");
         //all good........    
     } else {
         //if answer is correct.......
