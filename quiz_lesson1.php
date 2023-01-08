@@ -76,11 +76,37 @@ if (isset($_GET['usehint'])) {
 </style>
 </head>
 <br>
+     <!-- getting total score -->
+<?php
+    $user = $_SESSION['login_id'];
+    $quiz = $_SESSION['quiz-id'];
+    $attempt = $_SESSION['quiz_attempt'];
+
+    $totalscorequery = "SELECT SUM(points) AS totalpoints FROM quiz_correct
+    WHERE user_id=$user AND quiz_id=$quiz AND quiz_attempt=$attempt";
+    $queryResult = mysqli_query($conn, $totalscorequery);
+    $rowCount = mysqli_num_rows($queryResult);
+
+    $totalScore;
+    
+
+    if ($rowCount > 0) {
+        $record = mysqli_fetch_assoc($queryResult);
+        while($record){
+            $total = $record['totalpoints'];
+            $totalScore = $total;
+            break;
+        }
+    }
+    if($totalScore == ""){
+        $totalScore = 0;
+    }
+?>
 
 <body>
     <div class="score">
         <h3 style="font-weight: bolder;color: DodgerBlue;">Score:
-            <span style="font-weight: bolder;color: #4169E1;font-size: 40px;">75</span>
+            <span style="font-weight: bolder;color: #4169E1;font-size: 40px;"><?php echo $totalScore; ?></span>
         </h3>
     </div>
     <div style="width: 12in;" class="container-fluid admin">
@@ -330,6 +356,8 @@ unset($_SESSION['headertext']);
             <?php
             $clicked = 1;
             ?>
+            window.location =
+                "quiz_lesson1.php?repeat=<?php echo $mistakes; ?>&question=<?php echo $item_num; ?>&usehint=<?php echo $clicked; ?>";
         });
     }
 </script>
