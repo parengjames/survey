@@ -16,11 +16,12 @@ if (isset($_POST['submit'])) {
     $currentItem =  $_SESSION['itemNum'];
 
     $over = $_SESSION['over'];
-
-    echo "Your answer is $answer";
     //checking if the input answer is not empty......
     if ($answer == "") {
-        echo "no answer read";
+        $_SESSION['headertext_empty'] = "No answer detected";
+        $_SESSION['bodytext_empty']   = "Make sure to click the choices to submit the answer.";
+        $_SESSION['statusIcon_empty'] = "warning";
+        header("location: ../survey/quiz_lesson1.php?repeat=$over&question=$currentItem");
         //all good........    
     } else {
         //if answer is correct.......
@@ -54,7 +55,7 @@ if (isset($_POST['submit'])) {
             // reach the last question............
             if($itemIncrement == $numberofItem){
                 $_SESSION['headertextlast'] = "Nice! that's correct one";
-                $_SESSION['bodytextlast']   = "this is last question. See the result now. Correct answer is " . $answerkey . " and score obtained " . $totalScore . " points";
+                $_SESSION['bodytextlast']   = "This is last question. See the result now. Correct answer is " . $answerkey . " and score obtained " . $totalScore . " points";
                 $_SESSION['statusIconlast'] = "success";
                 header("location: ../survey/quiz_lesson1.php?question=$numberofItem");
             }else{
