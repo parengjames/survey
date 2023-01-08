@@ -4,6 +4,7 @@ include('db_connect.php');
 if (isset($_POST['submit'])) {
     $answer = $_POST['answer'];
     $answerkey = $_POST['answerkey'];
+    $hintUseValue = $_POST['hintusage'];
     $quizitemID = $_POST['question_id'];
     $quiz_id = $_SESSION['quiz-id'];
     $mistakes = 1;
@@ -13,6 +14,8 @@ if (isset($_POST['submit'])) {
     $quizAttempt = $_SESSION['quiz_attempt'];
 
     $currentItem =  $_SESSION['itemNum'];
+
+    $over = $_SESSION['over'];
 
     echo "Your answer is $answer";
     //checking if the input answer is not empty......
@@ -64,12 +67,36 @@ if (isset($_POST['submit'])) {
                     $mistakes = $record['totalmistakes'];
                     if($mistakes == 1){
                         $_SESSION['headertext'] = "Try again";
-                        $_SESSION['bodytext']   = "Answer is wrong";
+                        $_SESSION['bodytext']   = "The answer is wrong";
                         $_SESSION['statusIcon'] = "error";
                         header("location: ../survey/quiz_lesson1.php?repeat=1&question=$currentItem");
+                    }else if($mistakes == 2){
+                        $_SESSION['headertext'] = "Try again";
+                        $_SESSION['bodytext']   = "Answer is wrong, analyze the question carefully.";
+                        $_SESSION['statusIcon'] = "error";
+                        header("location: ../survey/quiz_lesson1.php?repeat=2&question=$currentItem");
+                    }else if($mistakes == 3){
+                        $_SESSION['headertext'] = "Try again, Still wrong answer";
+                        $_SESSION['bodytext']   = "SETI suggest, you can use the hint now";
+                        $_SESSION['statusIcon'] = "warning";
+                        header("location: ../survey/quiz_lesson1.php?repeat=3&question=$currentItem");
+                    }
+                    else if($mistakes == 4){
+                        $_SESSION['headertext'] = "Still wrong answer";
+                        $_SESSION['bodytext']   = "SETI suggest, you can use the hint now for more idea";
+                        $_SESSION['statusIcon'] = "warning";
+                        header("location: ../survey/quiz_lesson1.php?repeat=4&question=$currentItem&usehint=$hintUseValue");
+                    }else{
+                        ++$over;
+                        $_SESSION['headertext'] = "Still wrong answer";
+                        $_SESSION['bodytext']   = "SETI suggest that you can use the HINT for more idea.";
+                        $_SESSION['statusIcon'] = "error";
+                        header("location: ../survey/quiz_lesson1.php?repeat=$over&question=$currentItem&usehint=$hintUseValue");
                     }
                     break;
                 }
+             }else{
+                echo "no record found......";
              }
         }
     }

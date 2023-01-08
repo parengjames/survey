@@ -34,24 +34,4 @@
           	</div>
           </div>
       </div>
-    <!--  <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box">
-
-
-<div class="info-box-content">
-                <span class="info-box-text">Total Surveys Taken</span>
-                <span class="info-box-number">
-            //      <?php echo $conn->query("SELECT distinct(survey_id) FROM answers  where user_id = {$_SESSION['login_id']}")->num_rows; ?>
-                </span>
-              </div> --> --
-
-
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-      </div> 
-          
 <?php endif; ?>

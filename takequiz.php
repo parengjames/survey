@@ -38,9 +38,15 @@
 						if (mysqli_num_rows($result) > 0) {
 							while ($row = mysqli_fetch_assoc($result)) {
 								$quizid = $row["quiz_id"];
+								$totalquestion = $row['totalItem'];
+								$totalPoints = $row['totalPoints'];
+								$passinggrade = $row['passing_score'];
 								
 								//SESSION START.......
 								$_SESSION['quiz-id'] = $quizid;
+								$_SESSION['totalquestion'] = $totalquestion;
+								$_SESSION['totalpoints'] = $totalPoints;
+								$_SESSION['passingscore'] = $passinggrade;
 								echo "<tr>";
 
 								echo "<td>" . $row["quiz_id"] . "</td>";
