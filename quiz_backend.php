@@ -25,68 +25,84 @@ if (isset($_POST['submit'])) {
     } else {
         //if answer is correct.......
         if ($answer == $answerkey) {
-
+            $totalMistakes = $_SESSION['over'];
+            $numberofItem = $_SESSION['totalquestion'];
             //scoring criteria......
-       //   if ($totalMistakes == 0) {
-          //      $score = 5;
-           // } else if ($totalMistakes == 1) {
-            //    $score = 4;
-          //  } else if ($totalMistakes == 2) {
-            //     $score = 3;
-            // } else if ($totalMistakes == 3) {
-            //     $score = 2;
-            // } else if ($totalMistakes == 4) {
-            //     $score = 1;
-            // } else {
-            //     $score = 0;
-            // }
-            // $totalScore = $score;
+            if ($totalMistakes == 0) {
+                $score = 5;
+            } else if ($totalMistakes == 1) {
+                $score = 4;
+            } else if ($totalMistakes == 2) {
+                $score = 3;
+            } else if ($totalMistakes == 3) {
+                $score = 2;
+            } else if ($totalMistakes == 4) {
+                $score = 1;
+            } else {
+                $score = 0;
+            }
+            $totalScore = $score;
             // query for inserting score to exam_correct table database.............
-            // $saveScore = "INSERT INTO `quiz_correct`(`user_id`, `quiz_id`, `quizItemID`, `points`, `hint_used`, `quiz_attempt`) 
-            // VALUES ('[value-2]',$quizID,'[value-4]','[value-5]','[value-6]','[value-7]')";
+            $saveScore = "INSERT INTO `quiz_correct`(`user_id`, `quiz_id`, `quizItemID`, `points`, `hint_used`, `quiz_attempt`) 
+            VALUES ($user_id,$quiz_id,$quizitemID,$totalScore,$hintUseValue,$quizAttempt)";
+            $insertResult = mysqli_query($conn, $saveScore);
 
-            // $scorequery = "INSERT INTO `exam_correct`(`student_id`, `exam_id`, `examitem_id`, `points`,`hint_attempt`,`exam_attempt`) 
-            // VALUES ($studentID,$examID,$questionId,$totalScore,$hintUseValue,$examAttempt)";
-            // $result = mysqli_query($con, $scorequery);
+            $itemIncrement = $_SESSION['itemNum'];
+            $itemstay = $_SESSION['itemNum'];
+            $_SESSION['stay'] = $itemstay;
+
+            // reach the last question............
+            if($itemIncrement == $numberofItem){
+                $_SESSION['headertextlast'] = "Nice! that's correct one";
+                $_SESSION['bodytextlast']   = "this is last question. See the result now. Correct answer is " . $answerkey . " and score obtained " . $totalScore . " points";
+                $_SESSION['statusIconlast'] = "success";
+                header("location: ../survey/quiz_lesson1.php?question=$numberofItem");
+            }else{
+                ++$itemIncrement;
+                $_SESSION['nextitem'] = $itemIncrement;
+                $_SESSION['headertextitem'] = "Nice! that's correct one";
+                $_SESSION['bodytextitem']   = "The answer of that question is " . $answerkey . " and you've got " . $totalScore . " points";
+                $_SESSION['ItemStatus'] = 'success';
+                header("location: ../survey/quiz_lesson1.php?checkpoint=1&question=$itemstay");
+            }
         }
         // got wrong answer........
-        else{
+        else {
             $mistakequery = "INSERT INTO `quiz_mistake`(`user_id`, `quizItem_id`, `quiz_id`, `input_answer`, `mistake`, `quiz_attempt`) 
-            VALUES($user_id,$quizitemID,$quiz_id,$answer,$mistakes,$quizAttempt)";
-             $insertResult = mysqli_query($conn, $mistakequery);
+            VALUES($user_id,$quizitemID,$quiz_id,'". $answer ."',$mistakes,$quizAttempt)";
+            $insertResult = mysqli_query($conn, $mistakequery);
 
-             // fetching mistakes from database........
-             $fetchquery = "SELECT SUM(mistake) AS totalmistakes FROM quiz_mistake
+            // fetching mistakes from database........
+            $fetchquery = "SELECT SUM(mistake) AS totalmistakes FROM quiz_mistake
              WHERE user_id=$user_id AND quizItem_id=$quizitemID AND quiz_attempt=$quizAttempt";
-             $queryResult = mysqli_query($conn, $fetchquery);
-             $rowCount = mysqli_num_rows($queryResult);
+            $queryResult = mysqli_query($conn, $fetchquery);
+            $rowCount = mysqli_num_rows($queryResult);
 
-             if($rowCount > 0){
+            if ($rowCount > 0) {
                 $record = mysqli_fetch_assoc($queryResult);
-                while($record){
+                while ($record) {
                     $mistakes = $record['totalmistakes'];
-                    if($mistakes == 1){
+                    if ($mistakes == 1) {
                         $_SESSION['headertext'] = "Try again";
                         $_SESSION['bodytext']   = "The answer is wrong";
                         $_SESSION['statusIcon'] = "error";
                         header("location: ../survey/quiz_lesson1.php?repeat=1&question=$currentItem");
-                    }else if($mistakes == 2){
+                    } else if ($mistakes == 2) {
                         $_SESSION['headertext'] = "Try again";
                         $_SESSION['bodytext']   = "Answer is wrong, analyze the question carefully.";
                         $_SESSION['statusIcon'] = "error";
                         header("location: ../survey/quiz_lesson1.php?repeat=2&question=$currentItem");
-                    }else if($mistakes == 3){
+                    } else if ($mistakes == 3) {
                         $_SESSION['headertext'] = "Try again, Still wrong answer";
                         $_SESSION['bodytext']   = "SETI suggest, you can use the hint now";
                         $_SESSION['statusIcon'] = "warning";
                         header("location: ../survey/quiz_lesson1.php?repeat=3&question=$currentItem");
-                    }
-                    else if($mistakes == 4){
+                    } else if ($mistakes == 4) {
                         $_SESSION['headertext'] = "Still wrong answer";
                         $_SESSION['bodytext']   = "SETI suggest, you can use the hint now for more idea";
                         $_SESSION['statusIcon'] = "warning";
                         header("location: ../survey/quiz_lesson1.php?repeat=4&question=$currentItem&usehint=$hintUseValue");
-                    }else{
+                    } else {
                         ++$over;
                         $_SESSION['headertext'] = "Still wrong answer";
                         $_SESSION['bodytext']   = "SETI suggest that you can use the HINT for more idea.";
@@ -95,9 +111,9 @@ if (isset($_POST['submit'])) {
                     }
                     break;
                 }
-             }else{
+            } else {
                 echo "no record found......";
-             }
+            }
         }
     }
 }

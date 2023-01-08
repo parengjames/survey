@@ -149,8 +149,8 @@ if (isset($_GET['usehint'])) {
                                                                                                                             } else if ($mistakes == 3) {
                                                                                                                                 echo $record['ch1'];
                                                                                                                             } else {
-                                                                                                                            echo $record['ch1'];
-                                                                                                                            }?>" hidden>
+                                                                                                                                echo $record['ch1'];
+                                                                                                                            } ?>" hidden>
                                                 <label style="vertical-align: middle;font-size: 18px;cursor: pointer;" for="ch1">
                                                     a.
                                                     <?php
@@ -161,8 +161,8 @@ if (isset($_GET['usehint'])) {
                                                     } else if ($mistakes == 3) {
                                                         echo $record['ch1'];
                                                     } else {
-                                                    echo $record['ch1'];
-                                                    }?>
+                                                        echo $record['ch1'];
+                                                    } ?>
                                                 </label>
                                             </button>
                                         </td>
@@ -176,8 +176,8 @@ if (isset($_GET['usehint'])) {
                                                                                                                             } else if ($mistakes == 3) {
                                                                                                                                 echo $record['ch2'];
                                                                                                                             } else {
-                                                                                                                            echo $record['ch2'];
-                                                                                                                            } 
+                                                                                                                                echo $record['ch2'];
+                                                                                                                            }
                                                                                                                             ?>" hidden>
                                                 <label style="vertical-align: middle;font-size: 18px;cursor: pointer;" for="ch2">
                                                     b.
@@ -189,8 +189,8 @@ if (isset($_GET['usehint'])) {
                                                     } else if ($mistakes == 3) {
                                                         echo $record['ch2'];
                                                     } else {
-                                                    echo $record['ch2'];
-                                                    } 
+                                                        echo $record['ch2'];
+                                                    }
                                                     ?>
                                                 </label>
                                             </button>
@@ -205,8 +205,8 @@ if (isset($_GET['usehint'])) {
                                                                                                                             } else if ($mistakes == 3) {
                                                                                                                                 echo $record['ch3'];
                                                                                                                             } else {
-                                                                                                                            echo $record['ch3'];
-                                                                                                                            } 
+                                                                                                                                echo $record['ch3'];
+                                                                                                                            }
                                                                                                                             ?>" hidden>
                                                 <label style="vertical-align: middle; font-size: 18px;cursor: pointer;" for="ch3">
                                                     c.
@@ -218,8 +218,8 @@ if (isset($_GET['usehint'])) {
                                                     } else if ($mistakes == 3) {
                                                         echo $record['ch3'];
                                                     } else {
-                                                    echo $record['ch3'];
-                                                    } 
+                                                        echo $record['ch3'];
+                                                    }
                                                     ?>
                                                 </label>
                                             </button>
@@ -299,6 +299,7 @@ if (isset($quizAttempt)) {
 <script src="assets/plugins/sweetalert2/jquery-3.6.1.min.js"></script>
 <!-- for sweet alert........... -->
 
+<!-- NOTIFICATION OF WRONG ANSWER -->
 <?php
 if (isset($_SESSION['headertext'])) {
     if (isset($_SESSION['bodytext'])) {
@@ -332,5 +333,28 @@ unset($_SESSION['headertext']);
         });
     }
 </script>
+
+<!-- NOTIFICATION OF CORRECT ANSWER -->
+<?php
+if (isset($_SESSION['headertextitem'])) {
+    if (isset($_SESSION['bodytextitem'])) {
+        if (isset($_SESSION['ItemStatus'])) {
+?>
+            <script>
+                swal({
+                    title: "<?php echo $_SESSION['headertextitem'] ?>",
+                    text: "<?php echo $_SESSION['bodytextitem'] ?>",
+                    icon: "<?php echo $_SESSION['ItemStatus'] ?>",
+                    button: 'next'
+                }).then(function() {
+                    window.location = "quiz_lesson1.php?question=<?php echo $_SESSION['nextitem']; ?>";
+                });
+            </script>
+<?php
+        }
+    }
+}
+unset($_SESSION['headertextitem']);
+?>
 
 </html>
