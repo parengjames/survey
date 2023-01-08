@@ -440,7 +440,7 @@ if (isset($_SESSION['headertextlast'])) {
                     icon: '<?php echo $_SESSION['statusIconlast'] ?>',
                     button: 'See Result'
                 }).then(function() {
-                    window.location = "index.php?page=excircle_result&saveResult=1";
+                    window.location = "index.php?page=quiz_result&saveResult=1";
                 });
             </script>
 <?php
