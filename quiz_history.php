@@ -34,6 +34,7 @@
                         $count = 0;
                         $ATTEMPT;
                         $student_id = $_SESSION['login_id'];
+                        $Quiz_Id = $_SESSION['QUIZID'] ;
 
                         $sqlgetquery = "SELECT MAX(status)AS getAttempt FROM quiz_attempt
 	                        WHERE student_id=$student_id";
@@ -43,18 +44,6 @@
                             $record = mysqli_fetch_assoc($queryResult);
                             while ($record) {
                                 $ATTEMPT = $record['getAttempt'];
-                                $record = mysqli_fetch_assoc($queryResult);
-                            }
-                        }
-
-                        $Quiz_Id;
-                        $getquizid = "SELECT * FROM quiz_result WHERE `user_id`=$student_id AND quiz_attempt=$ATTEMPT";
-                        $queryResult = mysqli_query($conn, $getquizid);
-                        $rowCount1 = mysqli_num_rows($queryResult);
-                        if ($rowCount1 > 0) {
-                            $record = mysqli_fetch_assoc($queryResult);
-                            while ($record) {
-                                $Quiz_Id = $record['quiz_id'];
                                 $record = mysqli_fetch_assoc($queryResult);
                             }
                         }
