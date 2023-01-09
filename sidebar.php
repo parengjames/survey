@@ -118,13 +118,12 @@
                   $rowCount = mysqli_num_rows($result);
                   if ($rowCount > 0) {
                       while ($row = mysqli_fetch_assoc($result)) {
-
+                          $quiz = $row['quiz_id'];
                           $totalpoints = $row['totalPoints'];
                           $totalitem = $row['totalItem'];
                           $pass = $row['passing_score'];
-
                           //
-
+                          $_SESSION['QUIZID'] = $quiz;
                           $_SESSION['totalquestion'] = $totalitem;
                           $_SESSION['passingscore'] = $pass;
                           $_SESSION['totalpoints'] = $totalpoints;            
