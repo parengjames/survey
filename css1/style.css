@@ -47,6 +47,7 @@ body {
 	font-size: 14px;
 	cursor: pointer;
 	text-decoration: underline;
+	
 }
 
 .card-popup {
@@ -55,8 +56,8 @@ body {
 	top: 30px;
 	left: -85px;
 	z-index: 9;
-	background: purple;
-	color: #fff;
+	background: white;
+	color: black;
 	font-weight: normal;
 	width: 250px;
 	height: auto;
@@ -70,6 +71,7 @@ body {
 	transform: translate3d(0, 20px, 0);
 	z-index: 1;
 	transition: .5s;
+	
 }
 
 .card-popup:before {
@@ -84,6 +86,7 @@ body {
 	margin: auto;
 	transform: rotate(45deg);
 	z-index: -1;
+	
 }
 
 .card-popup img {

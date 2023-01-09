@@ -2,8 +2,8 @@
 <?php include('db_connect.php') ?>
 
 <title>ANATOMY OF THE HEART</title>
-<link rel="stylesheet" href="styles/style.css">
-<!-- <link href="css1/style.css"rel="stylesheet"type="text/css"/>  -->
+<!-- <link rel="stylesheet" href="styles/style.css"> -->
+<link href="css1/style.css" rel="stylesheet" type="text/css" />
 
 <!-- Botstrap-->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -21,11 +21,7 @@
 
 <body>
     <!--	<?php include('nav_bar.php') ?>-->
-
-
     <br>
-
-
     <p class="font-14 ml-0" align="left" style='font-size:30px;'>
         <b>Lesson 1 </b>
         <br>
@@ -75,8 +71,9 @@
                         Example: While studying the birds, the researchers conducted intense studies of the animals’
                         metabolic rate increases during prolonged flights. </span> </span> waste products have to be
                 removed. Deprived of these necessities, cells soon undergo irreversible changes that lead to death.
-                While blood is the transport medium, the heart is the <span class="card-box"> organ <span
-                        class="card-popup" style='font-size:16px;'> Organs are the structures formed by a group of
+                While blood is the transport medium, the heart is the <span class="card-box" style='font-size:20px;'><b
+                        style="color: blue;">organ </b><span class="card-popup" style='font-size:16px;'> Organs are the
+                        structures formed by a group of
                         tissues. The human body
                         organs of different types and can be grouped into sections like Of Digestion: Esophagus,
                         Stomach, liver, pancreas, small intestine, large intestine, rectum, and anus. Of Respiration:
@@ -131,7 +128,8 @@
                         style="color: blue;"> right ventricles </b>
 
                     <span class="card-popup " style='font-size:16px;'><img
-                            src="img/right-atrium-posterior-external-view.jpg" alt="">The right ventricle is the chamber
+                            src="img/c679f2e7042b68b40e7f2ce751c3dee1--cardiac-anatomy-idea.jpg" alt="">The right
+                        ventricle is the chamber
                         within the heart that is responsible for pumping oxygen-depleted blood to the lungs. The right
                         ventricle is one of the heart’s four chambers. It is located in the lower right portion of the
                         heart below the right atrium and opposite the left ventricle. As deoxygenated blood flows into
@@ -195,12 +193,45 @@
             <br>
             <p align="justify" style='font-size:20px;'>There are two distinct but linked circuits in the human
                 circulation called the pulmonary and systemic circuits. The <span class="card-box"
-                    style='font-size:20px;'> <b style="color: blue;"> pulmonary circuits </b> </span></span>
-                transports blood to and from the lungs, where it picks up oxygen and delivers carbon dioxide for
-                exhalation. The <span class="card-box" style='font-size:20px;'> <b style="color: blue;"> system circuits
-                    </b> </span> </span> transports oxygenated blood to virtually all of the tissues of the body and
-                returns to the heart.
+                    style='font-size:20px;'> <b style="color: blue;">pulmonary circuits </b>
 
+                    <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt=""> The
+                        pulmonary circuit is the path of circulation between the heart and the lungs. Blood is pumped to
+                        the various places of the body by a process known as the cardiac cycle. Oxygen depleted blood
+                        returns from the body to the right atrium of the heart by two large veins called vena cavae.
+                        Electrical impulses produced by cardiac conduction cause the heart to contract. As a result,
+                        blood in the right atrium is pumped to the right ventricle. On the next heart beat, the
+                        contraction of the right ventricle sends the oxygen-depleted blood to the lungs via the
+                        pulmonary artery. This artery branches into left and right pulmonary arteries. In the lungs,
+                        carbon dioxide in the blood is exchanged for oxygen at lung alveoli. Alveoli are small air sacs
+                        that are coated with a moist film that dissolves air. As a result, gases can diffuse across the
+                        thin endothelium of the alveoli sacs. The now oxygen-rich blood is transported back to the heart
+                        by the pulmonary veins. The pulmonary circuit is completed when pulmonary veins return blood to
+                        the left atrium of the heart. When the heart contracts again, this blood is pumped from the left
+                        atrium to the left ventricle and later to systemic circulation.</span></span>
+
+                transports blood to and from the lungs, where it picks up oxygen and delivers carbon dioxide for
+                exhalation. The <span class="card-box" style='font-size:20px;'> <b style="color: blue;">system
+                        circuits</b>
+
+                    <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt=""> A
+                        thorough understanding of the systemic circuit requires at least a basic understanding of your
+                        entire circulatory system. Your circulatory system consists of your heart, which is a muscular,
+                        four-chambered pump, and a series of closed tubes - your blood vessels - that carry blood away
+                        from your heart, deliver it to all of your tissues, and then return it to your heart. The blood
+                        vessels that carry blood away from your heart are called the arteries. To help you remember
+                        this, think 'a' for 'away,' like 'a' for 'artery.' As they travel farther from your heart, your
+                        arteries divide into progressively smaller vessels called arterioles, which themselves divide
+                        into even smaller vessels called capillaries. It is within your capillaries that oxygen and
+                        nutrients are delivered to your tissues, and carbon dioxide and cellular waste products are
+                        picked up. Once your capillaries have delivered oxygen to your tissues and gathered up the
+                        carbon dioxide from your cells, they join into progressively larger vessels called venules,
+                        which join into even larger veins as they course toward your heart. Eventually, your veins
+                        return the blood that has traveled throughout your body to your heart. So, don't forget:
+                        arteries carry your blood away from your heart, and veins carry your blood back to your
+                        heart.</span></span>
+
+                        transports oxygenated blood to virtually all of the tissues of the body and returns to the heart.</b>
             </p>
 
 
