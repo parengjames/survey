@@ -117,6 +117,7 @@ if ($rowCount > 0) {
         break;
     }
 }
+$_SESSION['quizAttempt'] = $attemptss;
 
 $totalscorequery = "SELECT SUM(points) AS totalpoints FROM quiz_correct
     WHERE user_id=$user AND quiz_id=$quiz AND quiz_attempt=$attemptss";

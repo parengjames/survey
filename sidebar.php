@@ -5,7 +5,7 @@
         <span class="brand-text font-weight-light"><?php echo ucwords($_SESSION['login_firstname'].' '.$_SESSION['login_lastname']) ?></span>
 
       </a>
-      <div class="dropdown-menu" style="">
+      <div class="dropdown-menu">
         <a class="dropdown-item manage_account" href="javascript:void(0)" data-id="<?php echo $_SESSION['login_id'] ?>">Manage Account</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="ajax.php?action=logout">Logout</a>
@@ -105,6 +105,14 @@
               <i class="nav-icon fas fa-poll-h"></i>
               <p>
                 Take quiz
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="./index.php?page=quiz_history" class="nav-link nav-survey_widget nav-answer_survey">
+              <i class="nav-icon fas fa-history"></i>
+              <p>
+                Quiz History
               </p>
             </a>
           </li>  
