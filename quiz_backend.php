@@ -5,6 +5,7 @@ if (isset($_POST['submit'])) {
     $answer = $_POST['answer'];
     $answerkey = $_POST['answerkey'];
     $hintUseValue = $_POST['hintusage'];
+    $HintDisplay = $_POST['hintdisplay'];
     $quizitemID = $_POST['question_id'];
     $quiz_id = $_SESSION['quiz-id'];
     $mistakes = 1;
@@ -102,13 +103,13 @@ if (isset($_POST['submit'])) {
                         $_SESSION['headertext'] = "Still wrong answer";
                         $_SESSION['bodytext']   = "SETI suggest, you can use the hint now for more idea";
                         $_SESSION['statusIcon'] = "warning";
-                        header("location: ../survey/quiz_lesson1.php?repeat=4&question=$currentItem&usehint=$hintUseValue");
+                        header("location: ../survey/quiz_lesson1.php?repeat=4&question=$currentItem&usehint=$hintUseValue&display=$HintDisplay");
                     } else {
                         ++$over;
                         $_SESSION['headertext'] = "Still wrong answer";
                         $_SESSION['bodytext']   = "SETI suggest that you can use the HINT for more idea.";
                         $_SESSION['statusIcon'] = "error";
-                        header("location: ../survey/quiz_lesson1.php?repeat=$over&question=$currentItem&usehint=$hintUseValue");
+                        header("location: ../survey/quiz_lesson1.php?repeat=$over&question=$currentItem&usehint=$hintUseValue&display=$HintDisplay");
                     }
                     break;
                 }
