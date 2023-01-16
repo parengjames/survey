@@ -72,6 +72,13 @@ if (isset($_GET['usehint'])) {
 } else {
     $hintValue = 0;
 }
+// display the hint 2 3
+$displayHint;
+if (isset($_GET['display'])) {
+    $displayHint = $_GET['display'];
+} else {
+    $displayHint = 0;
+}
 
 ?>
 
@@ -167,8 +174,12 @@ if ($totalScore == "") {
                 $itemid = $record['quizItemID'];
                 $itemAnswerkey = $record['answerkey'];
                 $storedhint = $record['hint'];
+                $hinttwo = $record['hint2'];
+                $hintthree = $record['hint3'];
 
                 $_SESSION['availableHint'] = $storedhint;
+                $_SESSION['Hint2'] = $hinttwo;
+                $_SESSION['Hint3'] = $hintthree;
         ?>
                 <div class="card">
                     <div class="card-header">
@@ -201,6 +212,7 @@ if ($totalScore == "") {
                                         <input type="text" id="questionID" name="question_id" value="<?php echo $itemid; ?>" hidden>
                                         <input type="text" id="anskey" name="answerkey" value="<?php echo $itemAnswerkey; ?>" hidden>
                                         <input type="text" id="hintattempt" name="hintusage" value="<?php echo $hintValue; ?>" hidden>
+                                        <input type="text" id="hintdsi" name="hintdisplay" value="<?php echo $displayHint; ?>" hidden>
                                         <td style="width: 150px;">
                                             <button style="border: none;background-color: white;cursor: default;" type="submit" name="submit">
                                                 <input style="cursor: pointer;" type="radio" id="ch1" name="answer" value="<?php
@@ -214,7 +226,7 @@ if ($totalScore == "") {
                                                                                                                                 echo $record['ch1'];
                                                                                                                             } ?>" hidden>
                                                 <label style="vertical-align: middle;font-size: 18px;cursor: pointer;" for="ch1">
-                                                    
+
                                                     <?php
                                                     if ($mistakes == 1) {
                                                         echo $record['ch3'];
@@ -242,7 +254,7 @@ if ($totalScore == "") {
                                                                                                                             }
                                                                                                                             ?>" hidden>
                                                 <label style="vertical-align: middle;font-size: 18px;cursor: pointer;" for="ch2">
-                                                    
+
                                                     <?php
                                                     if ($mistakes == 1) {
                                                         echo $record['ch1'];
@@ -271,7 +283,7 @@ if ($totalScore == "") {
                                                                                                                             }
                                                                                                                             ?>" hidden>
                                                 <label style="vertical-align: middle; font-size: 18px;cursor: pointer;" for="ch3">
-                                                    
+
                                                     <?php
                                                     if ($mistakes == 1) {
                                                         echo $record['ch2'];
@@ -290,7 +302,7 @@ if ($totalScore == "") {
                                             <button style="border: none; background-color: white;cursor: default;" type="submit" name="submit">
                                                 <input style="cursor: pointer;" type="radio" id="ch4" name="answer" value="<?php echo $record['ch4']; ?>" hidden>
                                                 <label style="vertical-align: middle;font-size: 18px;cursor: pointer;" for="ch4">
-                                                     <?php echo $record['ch4']; ?>
+                                                    <?php echo $record['ch4']; ?>
                                                 </label>
                                             </button>
                                         </td>
@@ -324,11 +336,48 @@ if ($totalScore == "") {
                         NO
                     </div>
                     <div class="col-6">
-                        <button onclick="availablehint()" style="color: #00FA9A;" type="button" class="btn btn-light border-radius-100 btn-block confirmation-btn" data-dismiss="modal">
-                            <i class="fa fa-check"></i>
-                        </button>
-                        YES
+                        <?php
+                        if ($displayHint == 1) {
+                        ?>
+                            <button data-toggle="modal" data-target="#hint2" style="color: #00FA9A;" type="button" class="btn btn-light border-radius-100 btn-block confirmation-btn" data-dismiss="modal">
+                                <i class="fa fa-check"></i>
+                            </button>
+                            YES
+                        <?php
+                        } else if ($displayHint == 2) {
+                        ?>
+                            <button onclick="hint3()" style="color: #00FA9A;" type="button" class="btn btn-light border-radius-100 btn-block confirmation-btn" data-dismiss="modal">
+                                <i class="fa fa-check"></i>
+                            </button>
+                            YES
+                        <?php
+                        } else {
+                        ?>
+                            <button onclick="availablehint()" style="color: #00FA9A;" type="button" class="btn btn-light border-radius-100 btn-block confirmation-btn" data-dismiss="modal">
+                                <i class="fa fa-check"></i>
+                            </button>
+                            YES
+                        <?php
+                        }
+                        ?>
+
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Notification HINT modal confirmation -->
+<div class="modal fade" id="hint2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center font-18">
+                <img style="width: 300px;margin-bottom: 20px;" src="img/hint/<?php echo $_SESSION['Hint2']; ?>" alt="hint">
+
+                <div>
+                <a href="quiz_lesson1.php?repeat=<?php echo $mistakes; ?>&question=<?php echo $item_num; ?>&usehint=<?php echo $hintValue; ?>&display=2" class="btn btn-secondary" type="button">OK</a>
                 </div>
             </div>
         </div>
@@ -370,6 +419,23 @@ unset($_SESSION['headertext']);
     function availablehint() {
         swal({
             title: '"<?php echo $_SESSION['availableHint']; ?>"',
+            icon: 'info',
+            button: 'Close',
+        }).then(function() {
+            <?php
+            $clicked = 1;
+            ?>
+            window.location =
+                "quiz_lesson1.php?repeat=<?php echo $mistakes; ?>&question=<?php echo $item_num; ?>&usehint=<?php echo $clicked; ?>&display=1";
+        });
+    }
+</script>
+
+<!-- hint details 3 -->
+<script>
+    function hint3() {
+        swal({
+            title: '"<?php echo $_SESSION['Hint3']; ?>"',
             icon: 'info',
             button: 'Close',
         }).then(function() {
