@@ -26,6 +26,40 @@
         <b>Lesson 1 </b>
         <br>
         <br>
+
+        <div class="card" style="width: 25rem;" style="margin-left: 50px;">
+            <br> <br>
+            <div class="card-body" style="margin-left: 50px;">
+                <h5 class="card-title" style='font-size:22px;'><b>Module 1 Topics</b></h5>
+                <br><br>
+                <a href="#Introduction" style='font-size:20px;'>Introduction of the heart</a><br>
+                <a href="#The 4 chambers of heart" style='font-size:20px;'>The 4 chambers of heart</a>
+                <a href="#Dual System of the Human Blood Circulation" style='font-size:20px;'>Dual System of the Human
+                    Blood Circulation</a><br>
+                <a href="#Layers of the heart" style='font-size:20px;'> Layers of the heart</a><br>
+                <a href="#Shape and Size of the Heart" style='font-size:20px;'> Shape and Size of the Heart</a><br>
+                <a href="#Location of the Heart" style='font-size:20px;'> Location of the Heart</a><br>
+                <a href="#Position of the Heart in the Thorax" style='font-size:20px;'>Position of the Heart in the
+                    Thorax</a><br>
+                <a href="#Key Terms" style='font-size:20px;'>Key Terms</a><br>
+                <br>
+
+                </div>
+        </div>
+
+
+        <br> <br>
+        <div class="card-body" style="margin-left: 50px; " width="500">
+            <h5 class="card-title" style='font-size:20px;'><b>Short Clip About lesson</b></h5>
+            <br><br>
+            <p align="first">
+                <iframe width="500" height="350" src="videos/anatomy-of-the-heart-videodownloader.ai (1).mp4"
+                    frameborder="0" allow="autoplay; emcrypted-media" allowfullscreen></iframe>
+            </p>
+        </div>
+
+
+
     <div class="col-lg-12 col-md-13 col-sm-12">
 
         <section id="Introduction">
@@ -33,8 +67,8 @@
 
 
 
-            <p align="justify" style='font-size:20px;'>The<span class="card-box" style='font-size:20px;'> <b
-                        style="color: blue;"> heart </b> <span class="card-popup " style='font-size:16px;'><img
+            <p align="justify" style='font-size:22px;'>The<span class="card-box" style='font-size:20px;'> <b
+                        style="color: blue;"> heart </b> <span class="card-popup " style='font-size:20px;'><img
                             src="images/hear.jpg" alt="">The heart is
                         a
                         muscular organ that pumps blood throughout the body. It is located in the middle cavity of the
@@ -158,7 +192,7 @@
                         serious conditions that require treatment. One such condition is mitral valve regurgitation, in
                         which blood leaks back into the left atrium through the mitral valve.</span></span>
 
-                pumps the oxygen-poor blood to the lungs.
+                        receives oxygen-rich blood from the lungs and pumps it to the left ventricle.
 
             </p>
 
@@ -171,7 +205,7 @@
                         pressure in the heart increases. The changes make it harder for the heart to effectively pump
                         blood.</span></span>
 
-                pumps the oxygen-rich blood to the body.
+                        pumps the oxygen-rich blood to the body.
 
             </p>
 
@@ -195,7 +229,8 @@
                 circulation called the pulmonary and systemic circuits. The <span class="card-box"
                     style='font-size:20px;'> <b style="color: blue;">pulmonary circuits </b>
 
-                    <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt=""> The
+                    <span class="card-popup " style='font-size:16px;'><img
+                            src="img/b717f961b281259c72eb4e2c2404b544.jpg" alt=""> The
                         pulmonary circuit is the path of circulation between the heart and the lungs. Blood is pumped to
                         the various places of the body by a process known as the cardiac cycle. Oxygen depleted blood
                         returns from the body to the right atrium of the heart by two large veins called vena cavae.
@@ -214,7 +249,8 @@
                 exhalation. The <span class="card-box" style='font-size:20px;'> <b style="color: blue;">system
                         circuits</b>
 
-                    <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt=""> A
+                    <span class="card-popup " style='font-size:16px;'><img src="img/the-systemic-circuit23-l.jpg"
+                            alt=""> A
                         thorough understanding of the systemic circuit requires at least a basic understanding of your
                         entire circulatory system. Your circulatory system consists of your heart, which is a muscular,
                         four-chambered pump, and a series of closed tubes - your blood vessels - that carry blood away
@@ -231,7 +267,7 @@
                         arteries carry your blood away from your heart, and veins carry your blood back to your
                         heart.</span></span>
 
-                        transports oxygenated blood to virtually all of the tissues of the body and returns to the heart.</b>
+                transports oxygenated blood to virtually all of the tissues of the body and returns to the heart.</b>
             </p>
 
 
@@ -243,7 +279,7 @@
             <p align="justify" style='font-size:20px;'>The right ventricle pumps deoxygenated blood into the <span
                     class="card-box" style='font-size:20px;'> <b style="color: blue;">pulmonary trunks </b>
 
-                    <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt=""> The lower
+                    <span class="card-popup " style='font-size:16px;'> The lower
                         The pulmonary trunk is a short artery transporting deoxygenated blood from the heart towards the
                         lungs. Some authors refer to this vessel as the main pulmonary artery, or simply the pulmonary
                         artery. The pulmonary trunk arises from the base of the right ventricle of the heart. After
@@ -253,7 +289,7 @@
                 which leads toward the lungs and splits into the left and right <span class="card-box"
                     style='font-size:20px;'> <b style="color: blue;">pulmonary arteries </b>
 
-                    <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt=""> The
+                    <span class="card-popup " style='font-size:16px;'> The
                         pulmonary arteries are blood vessels that carry systemic venous blood returning to the right
                         side of the heart through to the microcirculation of the lungs. Unlike in other organs where
                         arteries supply oxygenated blood, the blood carried by the pulmonary arteries is deoxygenated,
@@ -262,11 +298,11 @@
                 These vessels in turn branch many times before reaching the <span class="card-box"
                     style='font-size:20px;'> <b style="color: blue;">pulmonary capillaries</b>
 
-                    <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt=""> The
-                        pulmonary arteries are blood vessels that carry systemic venous blood returning to the right
-                        side of the heart through to the microcirculation of the lungs. Unlike in other organs where
-                        arteries supply oxygenated blood, the blood carried by the pulmonary arteries is deoxygenated,
-                        as it is venous blood returning to the heart.</span></span>
+                    <span class="card-popup " style='font-size:16px;'> The
+                        pulmonary capillaries are the junction points between the pulmonary arteries and the pulmonary
+                        veins. They are microscopic vessels in which red blood Blood is composed of red cells, white
+                        cells, platelets and plasma. Red cells carry oxygen and carbon dioxide. White cells are our
+                        defense system.</span></span>
 
                 where gas exchange occurs: Carbon dioxide exits the blood and oxygen enters. The pulmonary trunk
                 arteries and their branches are the only arteries in the body that carry relatively deoxygenated blood.
@@ -274,14 +310,19 @@
                 vessels that join together to form the </span></span>
 
                 <span class="card-box" style='font-size:20px;'> <b style="color: blue;">pulmonary veins</b>
-                </span></span>
 
-                the only veins in the body that carry highly oxygenated blood. The pulmonary veins bring blood into
-                the left atrium, which delivers the blood into the left ventricle, which in turn pumps oxygenated
-                blood into the aorta and on to the many branches of the systemic circuit. Eventually, these vessels
-                will lead to the systemic capillaries, where exchange with the tissue fluid and cells of the body
-                occurs. In this case, oxygen and nutrients exit the systemic capillaries to be used by the cells in
-                their metabolic processes, and carbon dioxide and waste products will enter the blood.
+                    <span class="card-popup " style='font-size:16px;'> The pulmonary veins are the veins that transfer
+                        oxygenated blood from the lungs to the heart. The largest pulmonary veins are the four main
+                        pulmonary veins, two from each lung that drain into the left atrium of the heart.</span></span>
+
+                the only veins in the body that carry highly oxygenated blood. The pulmonary veins bring blood into the
+                left atrium, which delivers the blood into the left ventricle, which in turn pumps oxygenated blood into
+                the aorta and on to the many branches of the systemic circuit. Eventually, these vessels will lead to
+                the systemic capillaries, where exchange with the tissue fluid and cells of the body occurs. In this
+                case, oxygen and nutrients exit the systemic capillaries to be used by the cells in their metabolic
+                processes, and carbon dioxide and waste products will enter the blood.</span></span>
+
+
 
 
             </p>
@@ -292,21 +333,27 @@
                 oxygen concentration than when it entered. The <span class="card-box" style='font-size:20px;'> <b
                         style="color: blue;"> superior vena cava</b>
 
-                    <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt=""> The right
-                        ventricle is the chamber within the heart that is responsible for pumping oxygen-depleted blood
-                        to the lungs. The right ventricle is one of the heart’s four chambers. It is located in the
-                        lower right portion of the heart below the right atrium and opposite the left ventricle. As
-                        deoxygenated blood flows into the right atrium, it passes through the tricuspid valve and into
-                        the right ventricle, which pumps the blood up through the pulmonary valve and through the
-                        pulmonary artery to the lungs.</span></span>
+                    <span class="card-popup " style='font-size:16px;'> The
+                        superior vena cava (SVC) is a large, significant vein responsible for returning deoxygenated
+                        blood collected from the body to the right atrium. It is present within the superior and middle
+                        mediastinum. The superior vena cava handles the venous return of blood from structures located
+                        superior to the diaphragm. In contrast, its counterpart, the inferior vena cava, handles venous
+                        return from the portion of the body inferior to the diaphragm. The impedance of flow in the
+                        superior vena cava by thrombosis or external compression can cause hemodynamic compromise
+                        depending on the severity and acuity of the obstruction.</span></span>
 
                 and the <span class="card-box" style='font-size:20px;'> <b style="color: blue;">inferior vena cava</b>
 
-                    <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt=""> The
-                        pulmonary arteries are blood vessels that carry systemic venous blood returning to the right
-                        side of the heart through to the microcirculation of the lungs. Unlike in other organs where
-                        arteries supply oxygenated blood, the blood carried by the pulmonary arteries is deoxygenated,
-                        as it is venous blood returning to the heart.</span></span>
+                    <span class="card-popup " style='font-size:16px;'>The
+                        inferior vena cava (also known as IVC or the posterior vena cava) is a large vein that carries
+                        blood from the torso and lower body to the right side of the heart. From there the blood is
+                        pumped to the lungs to get oxygen before going to the left side of the heart to be pumped back
+                        out to the body.
+
+                        The IVC gets its name from its structure and location. It is the lower, or inferior, part of the
+                        vena cava, which transports blood back to the right side of the heart. The IVC carries blood
+                        from the lower body while another vein, known as the superior vena cava, returns blood from the
+                        upper half of the body to the heart.</span></span>
 
                 return blood to the right atrium. The blood in the superior and inferior venae cavae flows into the
                 right atrium, which delivers blood into the right ventricle. This process of blood circulation continues
@@ -354,7 +401,7 @@
                         unequal thickness. From superficial to deep, these are the <span class="card-box"
                             style='font-size:20px;'> <b style="color: blue;">epicardium </b>
 
-                            <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt="">
+                            <span class="card-popup " style='font-size:16px;'>
                                 The epicardium develops from a protrusion of mesenchymal cells covered by mesothelium,
                                 the pro-epicardial organ (Simões and Riley 2018). This structure arises from the
                                 pericardial surface in the region of the sinus venosus during postfertilization week 5.
@@ -368,23 +415,13 @@
                             </span></span>
 
 
-                        the <span class="card-box" style='font-size:20px;'> <b style="color: blue;">myocardium, </b>
+                        the <b style="color: blue;">myocardium, </b>
 
-                            <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt="">
-                                The myocardium is the muscular layer of the heart. It consists of cardiac muscle cells
-                                (cardiac myocytes [also known as cardiac rhabdomyocytes] or cardiomyocytes) arranged in
-                                overlapping spiral patterns. These sheets of cells are anchored to the fibrous skeleton
-                                of the heart, which surrounds the atrioventricular valves and the origins of the aorta
-                                and pulmonary artery. The myocardial thickness is related to the pressure present in
-                                each chamber; thus the atria are thin walled and the ventricles are thicker. In adult
-                                animals, the thickness of the left ventricular free wall is approximately threefold that
-                                of the right ventricle, measured in a transverse section across the middle of the
-                                ventricles, because the pressure is greater in the systemic circulation than in the
-                                pulmonary circuit.</span></span>
 
                         and the <span class="card-box" style='font-size:20px;'> <b style="color: blue;">endocardium</b>
 
-                            <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt="">
+                            <span class="card-popup " style='font-size:16px;'><img
+                                    src="img/heart-a-endocardium-l (1).jpg" alt="">
                                 The endocardium is a delicate layer that invests the entire inner surface of the heart.
                                 Its structure and thickness are very variable from one chamber to another, and even
                                 within different regions of a given chamber. The endocardial connective tissue is
@@ -408,7 +445,7 @@
                     <p align="justify" style='font-size:20px;'>The middle and thickest layer is the<span
                             class="card-box" style='font-size:20px;'> <b style="color: blue;"> myocardium,</b>
 
-                            <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt="">
+                            <span class="card-popup " style='font-size:16px;'>
                                 The myocardium is the muscular layer of the heart. It consists of cardiac muscle cells
                                 (cardiac myocytes [also known as cardiac rhabdomyocytes] or cardiomyocytes) arranged in
                                 overlapping spiral patterns. These sheets of cells are anchored to the fibrous skeleton
@@ -433,19 +470,15 @@
                         the same amount of blood per contraction, the muscle of the<span class="card-box"
                             style='font-size:20px;'> <b style="color: blue;"> left ventricle,</b>
 
-                            <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg" alt="">
-                                The right atrium is one of the four chambers of the heart. The heart is comprised of two
-                                atria and two ventricles. Blood enters the heart through the two atria and exits through
-                                the two ventricles. Deoxygenated blood enters the right atrium through the inferior and
-                                superior vena cava. The right side of the heart then pumps this deoxygenated blood into
-                                the pulmonary arteries around the lungs. There, fresh oxygen enters the blood stream,
-                                and the blood moves to the left side of the heart, where it is then pumped to the rest
-                                of the body. There is a major difference between the heart of a developing fetus and
-                                that of a fully mature adult: a fetus will have a hole in the right atrium. This allows
-                                blood to flow straight through to the left atrium. This is significantly important to a
-                                fetus’ circulatory health. While in the womb, the fetus draws oxygenated blood from its
-                                mother. Once born, lungs become necessary and the connection between the two atria
-                                closes.</span></span>
+                            <span class="card-popup " style='font-size:16px;'>
+                                The lower
+                                left heart chamber is called the left ventricle. The left ventricle is the heart's main
+                                pumping
+                                chamber. During left ventricular hypertrophy, the thickened heart wall can become stiff.
+                                Blood
+                                pressure in the heart increases. The changes make it harder for the heart to effectively
+                                pump
+                                blood.</span></span>
 
                         is much thicker and better developed than that of the right ventricle. In order to overcome the
                         high resistance required to pump blood into the long body circuit, the left ventricle must
@@ -500,77 +533,42 @@
                                 cavity, medially between the lungs in the space known as the <span class="card-box"
                                     style='font-size:20px;'> <b style="color: blue;"> mediastinum. </b>
 
-                                    <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg"
-                                            alt="">
-                                        The myocardium is the muscular layer of the heart. It consists of cardiac muscle
-                                        cells
-                                        (cardiac myocytes [also known as cardiac rhabdomyocytes] or cardiomyocytes)
-                                        arranged in
-                                        overlapping spiral patterns. These sheets of cells are anchored to the fibrous
-                                        skeleton
-                                        of the heart, which surrounds the atrioventricular valves and the origins of the
-                                        aorta
-                                        and pulmonary artery. The myocardial thickness is related to the pressure
-                                        present in
-                                        each chamber; thus the atria are thin walled and the ventricles are thicker. In
-                                        adult
-                                        animals, the thickness of the left ventricular free wall is approximately
-                                        threefold that
-                                        of the right ventricle, measured in a transverse section across the middle of
-                                        the
-                                        ventricles, because the pressure is greater in the systemic circulation than in
-                                        the
-                                        pulmonary circuit.</span></span>
+                                    <span class="card-popup " style='font-size:16px;'>
+                                        The mediastinum is an area found in the midline of the thoracic cavity, that is
+                                        surrounded by the left and right pleural sacs. It is divided into the superior
+                                        and inferior mediastinum, of which the latter is larger.</span></span>
 
                                 Figure shows the position of the heart within the thoracic cavity. Within the
                                 mediastinum, the heart is separated from the other mediastinal structures by a tough
                                 membrane known as the </span></span>
 
-                            </p>
+                                <span class="card-box" style='font-size:20px;'> <b style="color: blue;">
+                                        pericardium,</b>
 
-                            <br>
+                                    <span class="card-popup " style='font-size:16px;'>
+                                        The pericardium is a thin sac that surrounds your heart. It protects and
+                                        lubricates your heart and keeps it in place within your chest.
 
-                            <p align="justify" style='font-size:20px;'>Although the ventricles on the right and left
-                                sides pump
-                                the same amount of blood per contraction, the muscle of the<span class="card-box"
-                                    style='font-size:20px;'> <b style="color: blue;"> left ventricle,</b>
+                                        Problems can occur when the pericardium becomes enflamed or fills with fluid.
+                                        The swelling can damage your heart and affect its function.</span></span>
 
-                                    <span class="card-popup " style='font-size:16px;'><img src="img/left-atrium-l.jpg"
-                                            alt="">
-                                        The right atrium is one of the four chambers of the heart. The heart is
-                                        comprised of two
-                                        atria and two ventricles. Blood enters the heart through the two atria and exits
-                                        through
-                                        the two ventricles. Deoxygenated blood enters the right atrium through the
-                                        inferior and
-                                        superior vena cava. The right side of the heart then pumps this deoxygenated
-                                        blood into
-                                        the pulmonary arteries around the lungs. There, fresh oxygen enters the blood
-                                        stream,
-                                        and the blood moves to the left side of the heart, where it is then pumped to
-                                        the rest
-                                        of the body. There is a major difference between the heart of a developing fetus
-                                        and
-                                        that of a fully mature adult: a fetus will have a hole in the right atrium. This
-                                        allows
-                                        blood to flow straight through to the left atrium. This is significantly
-                                        important to a
-                                        fetus’ circulatory health. While in the womb, the fetus draws oxygenated blood
-                                        from its
-                                        mother. Once born, lungs become necessary and the connection between the two
-                                        atria
-                                        closes.</span></span>
+                                or pericardial sac, and sits in its own space called the</span></span>
 
-                                is much thicker and better developed than that of the right ventricle. In order to
-                                overcome the
-                                high resistance required to pump blood into the long body circuit, the left ventricle
-                                must
-                                generate a great amount of pressure. The right ventricle does not need to generate as
-                                much
-                                pressure, since the route to and from the lungs is shorter and provides less resistance.
-                                [link]
-                                illustrates the differences in muscular thickness needed for each of the
-                                ventricles.</span></span>
+
+                                <span class="card-box" style='font-size:20px;'> <b style="color: blue;"> pericardial
+                                        cavity.</b>
+
+                                    <span class="card-popup " style='font-size:16px;'>
+                                        The pericardial cavity is the potential space formed between the two layers of
+                                        serous pericardium around the heart. Normally, it contains a small amount of
+                                        serous fluid that acts to reduce surface tension and lubricate. Therefore, the
+                                        cavity facilitates the free movement of the heart.</span></span>
+
+                                The dorsal surface of the heart lies near the bodies of the vertebrae, and its anterior
+                                surface sits deep to the sternum. The great veins, the superior and inferior venae
+                                cavae, and the great arteries, the aorta and pulmonary trunk, are attached to the
+                                superior surface of the heart, called the base.Figure. The inferior tip of the heart is
+                                called the apex.</span></span>
 
                             </p>
 
@@ -587,24 +585,19 @@
                                 <p style='font-size:20px;'>
 
                                     <br>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="product-detail-desc pd-30 card-box height-100-p"
-                                        style="background-color:lavender">
+                                <p align="justify" style='font-size:20px;'>The heart is located within the thoracic
+                                    cavity, medially between the lungs in the mediastinum. It is about the size of a
+                                    fist, is broad at the top, and tapers toward the base.
 
-                                        <p style='font-size:18px;'>
-                                            The heart is located within the thoracic cavity, medially
-                                            between the lungs in the mediastinum. It is about the size of a
-                                            fist, is broad at the top, and tapers toward the base.
-                                        </p>
-                                    </div>
-                                </div>
+                                    </span></span>
+
+                                </p>
 
                                 <br>
                                 <section id="Key Terms">
                                     <h4 class="mb-20 pt-20"><b>Key Terms</b></h4>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <div class="product-detail-desc pd-30 card-box height-100-p"
-                                            style="background-color:swhitesmoke">
+                               
+                                           
                                             <br>
                                             <p style='font-size:18px;'>
                                                 <b style="color:blue"> Myocardium - </b> Heart muscle
@@ -627,8 +620,7 @@
                                                 supply needed for cellular respiration.
                                             </p>
                                             <br>
-                                        </div>
-                                    </div>
+                                      
 
                                     </div>
                                     </div>

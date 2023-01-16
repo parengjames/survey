@@ -53,7 +53,7 @@
       <th scope="row">2</th>
       <td>Lesson 2</td>
       <td>Heart Valve</td>
-      <td><a href=lesson2.php type="button" class="btn btn-primary btn-sm>">View Lesson</a></td>
+      <td><a href=index.php?page=module2  type="button" class="btn btn-primary btn-sm>">View Lesson</a></td>
     </tr>
     
   

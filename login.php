@@ -36,15 +36,48 @@ header("location:index.php?page=home");
 
 </style>
 
-<body class="bg-dark">
 
 
-  <main id="main" >
-  	
-  		<div class="align-self-center w-100">
+
+<body class="bg-whisper">  
+
+  <main id="main" >  
+
+  <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="index.php" class="navbar-brand ml-lg-3">
+                <h3 class="m-0 text-uppercase text-primary"><i class="fa fa-book-reader mr-3"></i>SETI</h3>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active" style='font-size:20px;'>Home</a>
+                    <a href="about.html" class="nav-item nav-link" style='font-size:20px;'>About</a>
+                    <!-- <a href="#content" class="nav-item nav-link">Content</a> -->
+                    <!-- <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="detail.html" class="dropdown-item">Content Detail</a>
+                        </div>
+                    </div> -->
+                    <a href="contact.html" class="nav-item nav-link" style='font-size:20px;'>Contact</a>  
+                    <!-- <a href="feedback.php" class="nav-item nav-link">Feedback</a>   -->
+                </div>
+               <div>  <a href="login.php" class="btn btn-primary py-2 px-4 d-none d-lg-block">Login</a></div>&ensp;
+              <!-- <div>  <a href="adminlog.php" class="btn btn-primary py-2 px-4 d-none d-lg-block">Admin</a></div>-->
+              
+                
+            </div>
+        </nav>
+    </div>
+	
+  <!-- <div> &ensp;&ensp;&ensp; <a href="login1.php" class="btn btn-primary py-2 px-4 d-none d-lg-block ">Home</a></div> -->
+  		<div class="align-self-center w-100"> 
 		<h4 class="text-white text-center"><b>Login</b></h4>
-  		<div id="login-center" class="bg-dark row justify-content-center">
-  			<div class="card col-md-4">
+  		<div id="login-center" class="bg-whitesmoke row justify-content-center">
+  			<div class="col-lg-11  bg-light blue col-md-3">
   				<div class="card-body">
   					<form id="login-form" >
   						<div class="form-group">
@@ -55,8 +88,11 @@ header("location:index.php?page=home");
   							<label for="password" class="control-label text-dark">Password</label>
   							<input type="password" id="password" name="password" class="form-control form-control-sm">
   						</div>
-  						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Login</button></center>
-  					</form>
+  						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Login</button></center><br>
+						  <p>Don't have an account? <a href="new_user.php">Sign up</a>
+						  <!-- <a href="./new_user.php?page=new_user" class="nav-link nav-new_user tree-item"> <p>Add New</p> </a>
+  					 -->
+						</form>
   				</div>
   			</div>
   		</div>

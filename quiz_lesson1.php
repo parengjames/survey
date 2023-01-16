@@ -214,7 +214,7 @@ if ($totalScore == "") {
                                                                                                                                 echo $record['ch1'];
                                                                                                                             } ?>" hidden>
                                                 <label style="vertical-align: middle;font-size: 18px;cursor: pointer;" for="ch1">
-                                                    a.
+                                                    
                                                     <?php
                                                     if ($mistakes == 1) {
                                                         echo $record['ch3'];
@@ -242,7 +242,7 @@ if ($totalScore == "") {
                                                                                                                             }
                                                                                                                             ?>" hidden>
                                                 <label style="vertical-align: middle;font-size: 18px;cursor: pointer;" for="ch2">
-                                                    b.
+                                                    
                                                     <?php
                                                     if ($mistakes == 1) {
                                                         echo $record['ch1'];
@@ -271,7 +271,7 @@ if ($totalScore == "") {
                                                                                                                             }
                                                                                                                             ?>" hidden>
                                                 <label style="vertical-align: middle; font-size: 18px;cursor: pointer;" for="ch3">
-                                                    c.
+                                                    
                                                     <?php
                                                     if ($mistakes == 1) {
                                                         echo $record['ch2'];
@@ -290,7 +290,7 @@ if ($totalScore == "") {
                                             <button style="border: none; background-color: white;cursor: default;" type="submit" name="submit">
                                                 <input style="cursor: pointer;" type="radio" id="ch4" name="answer" value="<?php echo $record['ch4']; ?>" hidden>
                                                 <label style="vertical-align: middle;font-size: 18px;cursor: pointer;" for="ch4">
-                                                    d. <?php echo $record['ch4']; ?>
+                                                     <?php echo $record['ch4']; ?>
                                                 </label>
                                             </button>
                                         </td>

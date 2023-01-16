@@ -7,7 +7,7 @@
 
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item manage_account" href="javascript:void(0)" data-id="<?php echo $_SESSION['login_id'] ?>">Manage Account</a>
+        <!-- <a class="dropdown-item manage_account" href="javascript:void(0)" data-id="<?php echo $_SESSION['login_id'] ?>">Manage Account</a> -->
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="ajax.php?action=logout">Logout</a>
       </div>
@@ -34,12 +34,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="./index.php?page=new_user" class="nav-link nav-new_user tree-item">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Add New</p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a href="./index.php?page=user_list" class="nav-link nav-user_list tree-item">
                   <i class="fas fa-angle-right nav-icon"></i>
@@ -50,14 +50,14 @@
           </li>
        
           
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="./index.php?page=manage_Quiz" class="nav-link nav-survey_report">
               <i class="nav-icon fas fa-poll"></i>
               <p>
                 Manage quiz
               </p>
             </a>
-          </li> 
+          </li>  -->
 
 
 
@@ -66,29 +66,29 @@
 
         <?php else: ?>
 
-          <li class="nav-item">
+      <!--    <li class="nav-item">
             <a href="./index.php?page=module"  class="nav-link nav-edit_user">
               <i class="nav-icon fas fa-users"></i>
               <p>
                Module
                 <i class="right fas fa-angle-left"></i>
               </p>
-            </a>
+            </a>-->
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="./index.php?page=module1" class="nav-link nav-new_user tree-item">
                   <p>Lesson 1</p>
                 </a>
               </li>
-              <li class="nav-item">
+             <li class="nav-item">
                 <a href="./index.php?page=module2" class="nav-link nav-user_list tree-item">
             
                   <p>Lesson 2</p>
                 </a>
-              </li>
+              </li> 
             </ul>
           </li>
-<!--         
+      
           <li class="nav-item">
             <a href="./index.php?page=module" class="nav-link nav-survey_widget nav-answer_survey">
               <i class="nav-icon fas fa-poll-h"></i>
@@ -97,7 +97,7 @@
               </p>
             </a>
           </li>  
- -->
+
 
 
 
@@ -132,6 +132,15 @@
                 ?>
 
                 Quiz History
+              </p>
+            </a>
+          </li>  
+
+          <li class="nav-item">
+            <a href="./index.php?page=about" class="nav-link nav-survey_widget nav-answer_survey">
+              <i class="nav-icon fas fa-poll-h"></i>
+              <p>
+               About
               </p>
             </a>
           </li>  

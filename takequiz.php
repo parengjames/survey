@@ -104,7 +104,12 @@ if(isset($_SESSION['stud_totalAttempt'])){
                 </button>
             </div>
             <div class="modal-body"><h4>Proceed to the Quiz Now</h4>
-				<span>Note: When started, there is no turning back.</span>
+				
+				<span>Quiz Total Score: 75  </span>
+				<br>
+				<span>Passing Score: 60 </span>
+				<br>
+				<span>Total Items: 15  </span>
 			</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
