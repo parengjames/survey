@@ -18,6 +18,48 @@ header("location:index.php?page=home");
 
 ?>
 
+<!-- <?php
+if(isset($_SESSION['login_id'])){
+	$email = $_POST['email'];
+	$pass = $_POST['password'];
+
+	if(empty($email) || empty($pass)){
+		header("login.php?error=InvalidData");
+	} else {
+        //all good
+        //check whether the username exists
+        $sql = "SELECT * FROM register where email=? and password1=?";
+      
+        $statement = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($statement, $sql)){
+            header("login.php?error=DatabaseError");
+        }else{
+            mysqli_stmt_bind_param($statement, "ss", $email, $password);
+            mysqli_stmt_execute($statement);
+            mysqli_stmt_store_result($statement);
+            $recordCount = mysqli_stmt_num_rows($statement);
+            if($recordCount>0){
+                $_SESSION["LoggedinUser"] = $email;
+               
+                
+                header("location:index.php?page=home");
+            }else{
+                
+                header("login.php?error=AccessDenied");
+              
+
+            }
+        }
+    } 
+
+}else{
+    
+     header("login.php?error=AccessDenied");
+
+
+}
+?> -->
+
 </head>
 <style>
 	body{
@@ -79,7 +121,7 @@ header("location:index.php?page=home");
   		<div id="login-center" class="bg-whitesmoke row justify-content-center">
   			<div class="col-lg-11  bg-light blue col-md-3">
   				<div class="card-body">
-  					<form id="login-form" >
+  					<form id="login-form" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
   						<div class="form-group">
   							<label for="email" class="control-label text-dark">Email</label>
   							<input type="text" id="email" name="email" class="form-control form-control-sm">
@@ -88,7 +130,7 @@ header("location:index.php?page=home");
   							<label for="password" class="control-label text-dark">Password</label>
   							<input type="password" id="password" name="password" class="form-control form-control-sm">
   						</div>
-  						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Login</button></center><br>
+  						<center><button name="log" class="btn-sm btn-block btn-wave col-md-4 btn-primary">Login</button></center><br>
 						  <p>Don't have an account? <a href="new_user.php">Sign up</a>
 						  <!-- <a href="./new_user.php?page=new_user" class="nav-link nav-new_user tree-item"> <p>Add New</p> </a>
   					 -->
@@ -103,6 +145,7 @@ header("location:index.php?page=home");
 
 
 </body>
+
 <script>
 	$('#login-form').submit(function(e){
 		e.preventDefault()

@@ -190,7 +190,7 @@ if (isset($_GET['saveResult'])) {
     <script>
         swal({
             title: "You've finish the quiz",
-            text: "Good job, See your result now.",
+            text: " See your result now.",
             icon: 'success',
             button: 'OK'
         }).then(function() {

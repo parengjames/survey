@@ -1,23 +1,5 @@
 <?php
-session_start();
 ?>
-<html>
-<head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-
-<style>
-    .regBody{
-        width: 100%;
-        height: 100%;
-        padding: 10%;
-        background-color: aqua;
-        
-    }
-    </style>
-</head>
-<body>
-    <div class="regBody">
-   
 <div class="col-lg-12">
 	<div class="card">
 		<div class="card-body">
@@ -145,9 +127,4 @@ session_start();
 			}
 		})
 	})
-</script> 
-    </div>
-</body>
-</html>
-
-
+</script>
