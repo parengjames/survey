@@ -105,11 +105,12 @@ if(isset($_SESSION['stud_totalAttempt'])){
             </div>
             <div class="modal-body"><h4>Proceed to the Quiz Now</h4>
 				
-				<span>Quiz Total Score: 75  </span>
+				<span>Quiz Total Score: 15  </span>
 				<br>
-				<span>Passing Score: 60 </span>
+				<span>Passing Score: 11</span>
 				<br>
-				<span>Total Items: 15  </span>
+				<span>Total Items: 15  </span> <br>
+				<span style="font-weight: bold;">Note: You need to give the correct answer. 1 points in each question, 1 or more mistake means wrong.</span>
 			</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>

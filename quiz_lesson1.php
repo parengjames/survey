@@ -195,7 +195,7 @@ if ($totalScore == "") {
                                     </th>
                                     <th style="vertical-align: middle;width: 80px;text-align: center;">
                                         <?php
-                                        if ($mistakes >= 3) {
+                                        if ($mistakes >= 2) {
                                         ?>
                                             <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#hintConfirm" style="width: 70px; font-size: 16px;">
                                                 <i class="fas fa-lightbulb"></i> Hint

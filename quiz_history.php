@@ -82,7 +82,7 @@
                                     }
 
                                     echo "<td>";
-                                    echo  '<a style="padding: 2px;" type="button" class="btn btn-primary" data-attempt="' . $attempts . '" data-mistake="' . $record1['total_wrong'] . '" data-hint="' . $record1['total_hint'] . '" data-score="' . $record1['final_score'] . '" data-toggle="modal" data-target="#resultmodal" style="padding: 8px;color: white;">
+                                    echo  '<a style="padding: 2px;" type="button" class="btn btn-primary" data-attempt="' . $attempts . '" data-mistake="' . $record1['total_wrong'] . '" data-duration="'. $record1['time_duration'] .'" data-hint="' . $record1['total_hint'] . '" data-score="' . $record1['final_score'] . '" data-toggle="modal" data-target="#resultmodal" style="padding: 8px;color: white;">
                                                         <span class="icon-copy ti-eye"></span> View Details
                                                     </a>';
                                     echo "</td>";
@@ -120,7 +120,7 @@
                     ×
                 </button>
             </div>
-            <div class="modal-body" style="overflow: auto;height: 360px;">
+            <div class="modal-body" style="overflow: auto;height: 390px;">
                 <table class="table">
                     <tbody>
                         <tr>
@@ -141,6 +141,10 @@
                         <tr>
                             <th style="font-weight: bold;font-size: 15px;">Total Hint used: </th>
                             <td><span id="hintholder"></span></td>
+                        </tr>
+                        <tr>
+                            <th style="font-weight: bold;font-size: 15px;">Time duration: </th>
+                            <td><span id="durationholder"></span><span> mins</span></td>
                         </tr>
                         <tr>
                             <th style="font-weight: bold;font-size: 15px;">Passing Score: </th>
@@ -165,6 +169,7 @@
         var attmpt = button.data('attempt')
         var mstake = button.data('mistake')
         var hnt = button.data('hint')
+        var drt = button.data('duration')
         var scre = button.data('score')
 
         var modal = $(this)
@@ -172,5 +177,6 @@
         modal.find('#mistakesholder').html(mstake)
         modal.find('#hintholder').html(hnt)
         modal.find('#scoreholder').html(scre)
+        modal.find('#durationholder').html(drt)
     });
 </script>

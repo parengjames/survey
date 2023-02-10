@@ -16,12 +16,41 @@
 <title>Take Quiz</title>
 </head>
 
+
+
 <?php
 $userID = $_SESSION['login_id'];
 $quizID = $_SESSION['quiz-id'];
 $attempt = $_SESSION['quizAttempt'];
 ?>
 
+<!-- Calculate the quiz duration -->
+<?php
+    $query1 = mysqli_query($conn,"SELECT * FROM `quiz_attempt` WHERE student_id = $userID and status = $attempt");
+    $rowcount = mysqli_num_rows($query1);
+    if($rowCount > 0){
+        while($row = mysqli_fetch_assoc($query1)){
+            $starttime = strtotime($row['date']);
+            //--------------
+            $query2 = mysqli_query($conn,"SELECT * FROM `quiz_result` WHERE `user_id` = $userID and quiz_attempt = $attempt");
+            $rowcount = mysqli_num_rows($query2);
+            if($rowCount > 0){
+                while($row1 = mysqli_fetch_assoc($query2)){
+                $endtime = strtotime($row1['date_saved']);
+                
+                // calculate the minutes duration......
+                $minute = ($endtime - $starttime)/60;
+                $formatted_time = number_format($minute);
+                
+                $updatequery = "UPDATE `quiz_result` SET `time_duration`=$formatted_time WHERE `user_id` = $userID and quiz_id = $quizID and quiz_attempt = $attempt";
+                $updateResult = mysqli_query($conn, $updatequery);
+
+                }
+            }
+
+        }
+    }
+?>  
 <body>
     <div class="container-fluid admin">
         <div class="col-md-12 alert alert-primary">Your Quiz Result</div>
@@ -98,6 +127,24 @@ $attempt = $_SESSION['quizAttempt'];
                                     <td style="text-align: center;"><?php echo $studtotalhint; ?></td>
                                 </tr>
                                 <tr>
+                                    <th>Time duration: </th>
+                                    <?php
+                                    $duration_query = "SELECT * FROM `quiz_result` 
+                                    WHERE `user_id` = $userID and quiz_id = $quizID and quiz_attempt = $attempt";
+                                    $queryResult = mysqli_query($conn, $duration_query);
+                                    $rowCount = mysqli_num_rows($queryResult);
+                                    if ($rowCount > 0) {
+                                        $record = mysqli_fetch_assoc($queryResult);
+                                        while ($record) {
+                                            $timeduration= $record['time_duration'];
+                                            break;
+                                        }
+                                    }
+                                    ?>
+                                    <td style="text-align: center;">
+                                        <?php echo $timeduration . " min"; ?></td>
+                                </tr>
+                                <tr>
                                     <th>Passing Score: </th>
                                     <td style="text-align: center;">
                                         <?php $passinggrades = $_SESSION['passingscore'];
@@ -109,6 +156,7 @@ $attempt = $_SESSION['quizAttempt'];
                                         <?php $quiztotalitem =  $_SESSION['totalquestion'];
                                         echo $quiztotalitem; ?></td>
                                 </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -134,7 +182,11 @@ $attempt = $_SESSION['quizAttempt'];
                                         ?>
                                         <td style="color: #FF0000;">
                                             <h2 style="font-weight: bolder;">Quiz Failed</h2>  
-                                            <span>Don't worry you can take the quiz again.</span>      
+                                            <span>Don't worry you can take the quiz again. Seti suggest that you need to read and study more about the topic.</span>
+                                            <br><br>
+                                            <a class="btn btn-primary" href="index.php?page=module">
+                                                Go to module
+                                            </a>     
                                         </td>
                                         <?php
                                     }
@@ -147,34 +199,10 @@ $attempt = $_SESSION['quizAttempt'];
             </div>
         </div>
     </div>
-
-
 </body>
-<!-- INITIALIZING THE QUIZ ATTEMPT.... -->
-<?php
-// $stud_quiz_attempt;
-// if(isset($_SESSION['stud_totalAttempt'])){
-// 	$stud_quiz_attempt = $_SESSION['stud_totalAttempt'];
-// }else{
-// 	$student_id = $_SESSION['login_id'];
-// 	$sqlgetquery = "SELECT MAX(status)AS getAttempt FROM quiz_attempt
-// 	WHERE student_id=$student_id AND quiz_id=$quizid";
-// 	$queryResult = mysqli_query($conn, $sqlgetquery);
-//     $rowCount = mysqli_num_rows($queryResult);
-// 	if ($rowCount > 0) {
-//         $record = mysqli_fetch_assoc($queryResult);
-//         while ($record) {
-//             if ($record['getAttempt'] == 0) {
-//                 $stud_quiz_attempt = 1;
-//             } else {
-//                 $stud_quiz_attempt = ++$record['getAttempt'];
-//             }
-//             $record = mysqli_fetch_assoc($queryResult);
-//         }
-//     }
-// }
-?>
 </html>
+
+
 
 <!-- INPUT RESULT RECORD TO DATABASE -->
 <?php
@@ -200,3 +228,5 @@ if (isset($_GET['saveResult'])) {
 <?php
 }
 ?>
+
+

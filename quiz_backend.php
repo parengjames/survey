@@ -31,15 +31,11 @@ if (isset($_POST['submit'])) {
             $numberofItem = $_SESSION['totalquestion'];
             //scoring criteria......
             if ($totalMistakes == 0) {
-                $score = 5;
-            } else if ($totalMistakes == 1) {
-                $score = 4;
-            } else if ($totalMistakes == 2) {
-                $score = 3;
-            } else if ($totalMistakes == 3) {
-                $score = 2;
-            } else if ($totalMistakes == 4) {
                 $score = 1;
+            } else if ($totalMistakes == 1) {
+                $score = 0;
+            } else if ($totalMistakes == 2) {
+                $score = 0;
             } else {
                 $score = 0;
             }
@@ -56,7 +52,7 @@ if (isset($_POST['submit'])) {
             // reach the last question............
             if($itemIncrement == $numberofItem){
                 $_SESSION['headertextlast'] = "Nice! that's correct one";
-                $_SESSION['bodytextlast']   = "This is last question. See the result now. Correct answer is " . $answerkey . " and score obtained " . $totalScore . " points";
+                $_SESSION['bodytextlast']   = "This is last question. See the result now. Correct answer is " . $answerkey . "";
                 $_SESSION['statusIconlast'] = "success";
                 header("location: ../survey/quiz_lesson1.php?question=$numberofItem");
             }else{
@@ -85,13 +81,18 @@ if (isset($_POST['submit'])) {
                 while ($record) {
                     $mistakes = $record['totalmistakes'];
                     if ($mistakes == 1) {
+
+                        $forRemedial = "INSERT INTO `quiz_rem-mistakes`(`user_id`, `quiz_id`, `quizItem_id`, `quiz_attempt`) 
+                        VALUES ($user_id,$quiz_id,$quizitemID,$quizAttempt)";
+                        $insertto = mysqli_query($conn,$forRemedial);
+
                         $_SESSION['headertext'] = "Try again";
                         $_SESSION['bodytext']   = "The answer is wrong";
                         $_SESSION['statusIcon'] = "error";
                         header("location: ../survey/quiz_lesson1.php?repeat=1&question=$currentItem");
                     } else if ($mistakes == 2) {
                         $_SESSION['headertext'] = "Try again";
-                        $_SESSION['bodytext']   = "Answer is wrong, analyze the question carefully.";
+                        $_SESSION['bodytext']   = "SETI suggest, you can use the hint now";
                         $_SESSION['statusIcon'] = "error";
                         header("location: ../survey/quiz_lesson1.php?repeat=2&question=$currentItem");
                     } else if ($mistakes == 3) {
