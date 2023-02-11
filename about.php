@@ -34,7 +34,7 @@
 
 
 <!-- Feature Start -->
-<div class="container-fluid bg-image" style="margin: 90px 0;">
+<div class="container-fluid bg-image" style="margin: 10px 0;">
     <div class="container">
         <div class="row">
             <!-- <div class="col-lg-7 my-5 pt-5 pb-lg-5">

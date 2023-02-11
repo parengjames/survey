@@ -13,7 +13,7 @@
 <script src="assets/plugins/sweetalert2/sweetalert.min.js"></script>
 <script src="assets/plugins/sweetalert2/jquery-3.6.1.min.js"></script>
 
-<title>Take Quiz</title>
+<title>Quiz Result</title>
 </head>
 
 
@@ -26,31 +26,31 @@ $attempt = $_SESSION['quizAttempt'];
 
 <!-- Calculate the quiz duration -->
 <?php
-    $query1 = mysqli_query($conn,"SELECT * FROM `quiz_attempt` WHERE student_id = $userID and status = $attempt");
-    $rowcount = mysqli_num_rows($query1);
-    if($rowCount > 0){
-        while($row = mysqli_fetch_assoc($query1)){
-            $starttime = strtotime($row['date']);
-            //--------------
-            $query2 = mysqli_query($conn,"SELECT * FROM `quiz_result` WHERE `user_id` = $userID and quiz_attempt = $attempt");
-            $rowcount = mysqli_num_rows($query2);
-            if($rowCount > 0){
-                while($row1 = mysqli_fetch_assoc($query2)){
+$query1 = mysqli_query($conn, "SELECT * FROM `quiz_attempt` WHERE student_id = $userID and status = $attempt");
+$rowcount = mysqli_num_rows($query1);
+if ($rowCount > 0) {
+    while ($row = mysqli_fetch_assoc($query1)) {
+        $starttime = strtotime($row['date']);
+        //--------------
+        $query2 = mysqli_query($conn, "SELECT * FROM `quiz_result` WHERE `user_id` = $userID and quiz_attempt = $attempt");
+        $rowcount = mysqli_num_rows($query2);
+        if ($rowCount > 0) {
+            while ($row1 = mysqli_fetch_assoc($query2)) {
                 $endtime = strtotime($row1['date_saved']);
-                
+
                 // calculate the minutes duration......
-                $minute = ($endtime - $starttime)/60;
+                $minute = ($endtime - $starttime) / 60;
                 $formatted_time = number_format($minute);
-                
+
                 $updatequery = "UPDATE `quiz_result` SET `time_duration`=$formatted_time WHERE `user_id` = $userID and quiz_id = $quizID and quiz_attempt = $attempt";
                 $updateResult = mysqli_query($conn, $updatequery);
-
-                }
             }
-
         }
     }
-?>  
+}
+
+?>
+
 <body>
     <div class="container-fluid admin">
         <div class="col-md-12 alert alert-primary">Your Quiz Result</div>
@@ -136,7 +136,7 @@ $attempt = $_SESSION['quizAttempt'];
                                     if ($rowCount > 0) {
                                         $record = mysqli_fetch_assoc($queryResult);
                                         while ($record) {
-                                            $timeduration= $record['time_duration'];
+                                            $timeduration = $record['time_duration'];
                                             break;
                                         }
                                     }
@@ -174,21 +174,21 @@ $attempt = $_SESSION['quizAttempt'];
 
                                     ?>
                                         <td style="color: #32CD32;">
-                                            <h2 style="font-weight: bolder;">Quiz Passed</h2>        
+                                            <h2 style="font-weight: bolder;">Quiz Passed</h2>
                                         </td>
                                     <?php
-                                    }else{
+                                    } else {
                                         $ispassed = 0;
-                                        ?>
+                                    ?>
                                         <td style="color: #FF0000;">
-                                            <h2 style="font-weight: bolder;">Quiz Failed</h2>  
+                                            <h2 style="font-weight: bolder;">Quiz Failed</h2>
                                             <span>Don't worry you can take the quiz again. Seti suggest that you need to read and study more about the topic.</span>
                                             <br><br>
                                             <a class="btn btn-primary" href="index.php?page=module">
                                                 Go to module
-                                            </a>     
+                                            </a>
                                         </td>
-                                        <?php
+                                    <?php
                                     }
                                     ?>
                                 </tr>
@@ -200,6 +200,7 @@ $attempt = $_SESSION['quizAttempt'];
         </div>
     </div>
 </body>
+
 </html>
 
 
@@ -207,9 +208,25 @@ $attempt = $_SESSION['quizAttempt'];
 <!-- INPUT RESULT RECORD TO DATABASE -->
 <?php
 if (isset($_GET['saveResult'])) {
+    // INPUT RESULT RECORD TO DATABASE
     $insertResultquery = "INSERT INTO `quiz_result`(`user_id`, `quiz_id`, `total_wrong`, `total_hint`, `final_score`, `is_passed`, `quiz_attempt`) 
     VALUES ($userID,$quizID,$studtotalmistake,$studtotalhint,$studtotalScore,$ispassed,$attempt)";
     $insertResult = mysqli_query($conn, $insertResultquery);
+
+    // Identify the attempt that failed........
+    $retakeQuery = mysqli_query($conn, "SELECT COUNT(quiz_attempt) AS num_items FROM `item_retake` 
+        WHERE quiz_attempt = $attempt");
+    $rowcount = mysqli_num_rows($retakeQuery);
+    if ($rowcount > 0) {
+        while ($row = mysqli_fetch_assoc($retakeQuery)) {
+            $numberofItems = $row['num_items'];
+            if ($numberofItems >= 5) {
+                $passretake = "INSERT INTO `quiz_retake`(`quiz_id`, `user_id`, `quiz_attempt`, `num_items`) 
+                    VALUES ($quizID,$userID,$attempt,$numberofItems)";
+                $insertResult = mysqli_query($conn, $passretake);
+            }
+        }
+    }
 }
 ?>
 <?php
@@ -228,5 +245,3 @@ if (isset($_GET['saveResult'])) {
 <?php
 }
 ?>
-
-
