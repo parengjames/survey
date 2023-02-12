@@ -192,9 +192,6 @@ if (isset($_SESSION['stud_totalAttempt'])) {
     }
 }
 
-$retakeAttempt = $stud_quiz_attempt - 1;
-$_SESSION['retake-attempt'] = $retakeAttempt;
-
 ?>
 
 <!-- VERIFY TO TAKE EXAMS....-->
@@ -213,7 +210,7 @@ $_SESSION['retake-attempt'] = $retakeAttempt;
             </div>
             <div class="modal-footer">
                 <?php
-                $query = mysqli_query($conn, "SELECT * FROM retake_result WHERE user_id=$student_id AND quiz_id=$Quiz_Id AND retake_attempt=$retakeAttempt");
+                $query = mysqli_query($conn, "SELECT * FROM retake_result");
                 $rowcount = mysqli_num_rows($query);
                 if ($rowcount > 0) {
                     ?>
