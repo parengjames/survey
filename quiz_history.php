@@ -186,14 +186,13 @@ if (isset($_SESSION['stud_totalAttempt'])) {
             } else {
                 $stud_quiz_attempt = ++$record['getAttempt'];
             }
-            $_SESSION['retake_attempts'] = $stud_quiz_attempt;
             $record = mysqli_fetch_assoc($queryResult);
         }
     }
 }
 
-$retakeAttempt = $stud_quiz_attempt - 1;
-$_SESSION['retake-attempt'] = $retakeAttempt;
+$retake_Attempt = $stud_quiz_attempt - 1;
+$_SESSION['retake-attempt'] = $retake_Attempt;
 
 ?>
 
@@ -213,7 +212,7 @@ $_SESSION['retake-attempt'] = $retakeAttempt;
             </div>
             <div class="modal-footer">
                 <?php
-                $query = mysqli_query($conn, "SELECT * FROM retake_result WHERE user_id=$student_id AND quiz_id=$Quiz_Id AND retake_attempt=$retakeAttempt");
+                $query = mysqli_query($conn, "SELECT * FROM retake_result WHERE user_id=$student_id AND quiz_id=$Quiz_Id AND retake_attempt=$retake_Attempt");
                 $rowcount = mysqli_num_rows($query);
                 if ($rowcount > 0) {
                     ?>
