@@ -63,7 +63,8 @@ if (isset($_GET['attempt'])) {
     $result = mysqli_query($conn, $attemptQuery);
 }
 if (isset($quizAttempt)) {
-    $_SESSION['stud-totalAttempt'] = ++$quizAttempt;
+    $_SESSION['stud_totalAttempt'] = $quizAttempt;
+    $_SESSION['remain_Attempt'] = --$quizAttempt;
 }
 ?>
 
