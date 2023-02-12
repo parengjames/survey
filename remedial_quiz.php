@@ -49,20 +49,21 @@
 <?php include('db_connect.php'); ?>
 
 <?php
+    $userID = $_SESSION['login_id'];
+    $quizID = $_SESSION['quiz-id'];
+
 // using the value of attempts..........
 $quizAttempt;
 if (isset($_GET['attempt'])) {
     $quizAttempt = $_GET['attempt'];
     $_SESSION['quiz_attempt'] = $quizAttempt;
-    $userID = $_SESSION['login_id'];
-    $quizID = $_SESSION['quiz-id'];
 
     $attemptQuery = "INSERT INTO `retake_attempt`(`student_id`, `quiz_id`, `status`)
       VALUES ($userID,$quizID,$quizAttempt)";
     $result = mysqli_query($conn, $attemptQuery);
 }
 if (isset($quizAttempt)) {
-    $_SESSION['stud_totalAttempt'] = ++$quizAttempt;
+    $_SESSION['stud-totalAttempt'] = ++$quizAttempt;
 }
 ?>
 
@@ -111,7 +112,7 @@ if (isset($_GET['display'])) {
 
         <!-- Getting the questions information from database...... -->
         <?php
-        $query1 = mysqli_query($conn, "SELECT * FROM `quiz_retake`");
+        $query1 = mysqli_query($conn, "SELECT * FROM `quiz_retake` WHERE user_id = $userID");
         $rowcount = mysqli_num_rows($query1);
         if ($rowcount > 0) {
             while ($row = mysqli_fetch_assoc($query1)) {
@@ -119,7 +120,7 @@ if (isset($_GET['display'])) {
 
                 // count the number..........
                 $totalquery = mysqli_query($conn, "SELECT MIN(id) AS firstitem,COUNT(quiz_attempt) AS total_item FROM `item_retake`
-                where quiz_attempt = $failedAttempt");
+                where quiz_attempt = $failedAttempt and user_id=$userID");
                 $rowcountss = mysqli_num_rows($totalquery);
                 if ($rowcountss > 0) {
                     while ($rows = mysqli_fetch_assoc($totalquery)) {
@@ -142,7 +143,7 @@ if (isset($_GET['display'])) {
                 // questions and answer key.........
                 $fetchItems = mysqli_query($conn, "SELECT * FROM `item_retake`
                 JOIN quiz_item ON item_retake.quizItem_id = quiz_item.quizItemID
-                WHERE item_retake.quiz_attempt = $failedAttempt AND item_retake.id = $questionnext");
+                WHERE item_retake.quiz_attempt = $failedAttempt AND item_retake.id = $questionnext AND item_retake.user_id = $userID");
                 $rowcounts = mysqli_num_rows($fetchItems);
                 if ($rowcounts > 0) {
                     while ($record = mysqli_fetch_assoc($fetchItems)) {

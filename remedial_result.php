@@ -121,17 +121,26 @@ if ($rowCount > 0) {
                             if ($rowCount > 0) {
                                 $record = mysqli_fetch_assoc($queryResult);
                                 while ($record) {
-                                    $timeduration = $record['duration'];
+                                    if($record['duration'] == ""){
+                                        $timeduration = 0;
+                                    }else{
+                                        $timeduration = $record['duration'];
+                                    }
                                     break;
+                                    
                                 }
                             }
                             ?>
                             <td style="text-align: center;">
                                 <?php 
-                                if($timeduration <= 0){
-                                    echo "less than 1 min";
+                                if(isset($timeduration)){
+                                    if($timeduration <= 0){
+                                        echo "less than 1 min";
+                                    }else{
+                                        echo $timeduration . " min";
+                                    }
                                 }else{
-                                    echo $timeduration . " min";
+                                    echo "0";
                                 }
                                  ?></td>
                         </tr>

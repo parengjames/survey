@@ -215,7 +215,7 @@ if (isset($_GET['saveResult'])) {
 
     // Identify the attempt that failed........
     $retakeQuery = mysqli_query($conn, "SELECT COUNT(quiz_attempt) AS num_items FROM `item_retake` 
-        WHERE quiz_attempt = $attempt");
+        WHERE quiz_attempt = $attempt AND user_id=$userID");
     $rowcount = mysqli_num_rows($retakeQuery);
     if ($rowcount > 0) {
         while ($row = mysqli_fetch_assoc($retakeQuery)) {

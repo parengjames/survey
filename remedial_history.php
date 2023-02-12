@@ -20,15 +20,15 @@
 <?php
 $userID = $_SESSION['login_id'];
 $quizID = $_SESSION['quiz-id'];
-$attempt;
+$attempt = $_SESSION['attempttake'];
 
-$viewquery = "SELECT * FROM retake_result WHERE `user_id`=$userID AND quiz_id=$quizID";
-$queryResult = mysqli_query($conn, $viewquery);
-$rowCount1 = mysqli_num_rows($queryResult);
-if ($rowCount1 > 0) {
-    $record1 = mysqli_fetch_assoc($queryResult);
-    while ($record1) {
-        $attempt = $record1['retake_attempt'];
+// $viewquery = "SELECT * FROM retake_result WHERE `user_id`=$userID AND quiz_id=$quizID";
+// $queryResult = mysqli_query($conn, $viewquery);
+// $rowCount1 = mysqli_num_rows($queryResult);
+// if ($rowCount1 > 0) {
+//     $record1 = mysqli_fetch_assoc($queryResult);
+//     while ($record1) {
+//         $attempt = $record1['retake_attempt'];
 
 
 ?>
@@ -86,8 +86,8 @@ if ($rowCount1 > 0) {
                                     </tbody>
                                 </table>
                 <?php
-                            }
-                        }
+                            //     }
+                            // }
                         break;
                     }
                 }

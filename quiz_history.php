@@ -170,8 +170,8 @@
 <!-- INITIALIZING THE QUIZ ATTEMPT.... -->
 <?php
 $stud_quiz_attempt;
-if (isset($_SESSION['stud_totalAttempt'])) {
-    $stud_quiz_attempt = $_SESSION['stud_totalAttempt'];
+if (isset($_SESSION['stud-totalAttempt'])) {
+    $stud_quiz_attempt = $_SESSION['stud-totalAttempt'];
 } else {
     $student_id = $_SESSION['login_id'];
     $sqlgetquery = "SELECT MAX(status)AS getAttempt FROM retake_attempt
@@ -183,13 +183,14 @@ if (isset($_SESSION['stud_totalAttempt'])) {
         while ($record) {
             if ($record['getAttempt'] == 0) {
                 $stud_quiz_attempt = 1;
-            } else {
-                $stud_quiz_attempt = ++$record['getAttempt'];
             }
             $record = mysqli_fetch_assoc($queryResult);
         }
     }
 }
+
+$getAttempt = $stud_quiz_attempt - 1;
+$_SESSION['attempttake'] = $getAttempt;
 
 ?>
 
@@ -209,7 +210,7 @@ if (isset($_SESSION['stud_totalAttempt'])) {
             </div>
             <div class="modal-footer">
                 <?php
-                $query = mysqli_query($conn, "SELECT * FROM retake_result");
+                $query = mysqli_query($conn, "SELECT * FROM retake_result WHERE user_id = $student_id and retake_attempt = $getAttempt");
                 $rowcount = mysqli_num_rows($query);
                 if ($rowcount > 0) {
                     ?>
