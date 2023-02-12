@@ -186,7 +186,6 @@ if (isset($_SESSION['stud_totalAttempt'])) {
             } else {
                 $stud_quiz_attempt = ++$record['getAttempt'];
             }
-            $_SESSION['retake_attempts'] = $stud_quiz_attempt;
             $record = mysqli_fetch_assoc($queryResult);
         }
     }
