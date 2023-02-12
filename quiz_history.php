@@ -170,7 +170,6 @@
 <!-- INITIALIZING THE QUIZ ATTEMPT.... -->
 <?php
 $stud_quiz_attempt;
-$getAttempt;
 if (isset($_SESSION['stud-totalAttempt'])) {
     $stud_quiz_attempt = $_SESSION['stud-totalAttempt'];
 } else {
@@ -184,18 +183,14 @@ if (isset($_SESSION['stud-totalAttempt'])) {
         while ($record) {
             if ($record['getAttempt'] == 0) {
                 $stud_quiz_attempt = 1;
-            }else{
-                $stud_quiz_attempt = $record['getAttempt'];
-                $getAttempt = $record['getAttempt'];
-                $_SESSION['attempttake'] = $getAttempt;
             }
             $record = mysqli_fetch_assoc($queryResult);
         }
     }
     
 }
-// $getAttempt = $stud_quiz_attempt - 1;
-
+    $getAttempt = $stud_quiz_attempt - 1;
+    $_SESSION['attempttake'] = $getAttempt;
 
 ?>
 
