@@ -188,7 +188,7 @@ if (isset($_SESSION['stud_totalAttempt'])) {
         $record = mysqli_fetch_assoc($queryResult);
         while ($record) {
             if ($record['getAttempt'] == 0) {
-                $stud_quiz_attempt = 0;
+                $stud_quiz_attempt = 2;
                 $attemptDisplay = 1;
             }else{
                 $stud_quiz_attempt = ++$record['getAttempt'];
